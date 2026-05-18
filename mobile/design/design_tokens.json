@@ -1,0 +1,87 @@
+{
+  "theme": "Careem-style home services orchestrator",
+  "colors": {
+    "primary": "#1B5E20",
+    "primary_gradient": "linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)",
+    "secondary": "#2E7D32",
+    "accent": "#FFC107",
+    "background": "#F5F5F5",
+    "card_background": "#FFFFFF",
+    "error_dispute": "#D32F2F",
+    "success": "#388E3C",
+    "text_primary": "#212121",
+    "text_secondary": "#757575",
+    "divider": "#E0E0E0",
+    "shadow_color": "rgba(0, 0, 0, 0.08)"
+  },
+  "typography": {
+    "font_family_english": "Roboto, Inter, sans-serif",
+    "font_family_urdu": "Jameel Noori Nastaleeq, sans-serif",
+    "h1": {
+      "english_size": "24sp",
+      "urdu_size": "22sp",
+      "weight": "Bold"
+    },
+    "h2": {
+      "english_size": "20sp",
+      "urdu_size": "18sp",
+      "weight": "SemiBold"
+    },
+    "body_large": {
+      "english_size": "16sp",
+      "urdu_size": "15sp",
+      "weight": "Medium"
+    },
+    "body_medium": {
+      "english_size": "14sp",
+      "urdu_size": "13sp",
+      "weight": "Normal"
+    },
+    "caption": {
+      "english_size": "12sp",
+      "urdu_size": "11sp",
+      "weight": "Light"
+    }
+  },
+  "spacing": {
+    "padding_screen": "16px",
+    "padding_card": "16px",
+    "spacing_sections": "24px",
+    "spacing_elements": "12px",
+    "spacing_micro": "6px"
+  },
+  "components": {
+    "card": {
+      "border_radius": "12px",
+      "elevation": "subtle shadow",
+      "padding": "16px"
+    },
+    "button_primary": {
+      "background_color": "#1B5E20",
+      "text_color": "#FFFFFF",
+      "border_radius": "12px",
+      "height": "48px"
+    },
+    "button_secondary": {
+      "background_color": "transparent",
+      "border_color": "#1B5E20",
+      "text_color": "#1B5E20",
+      "border_radius": "12px",
+      "height": "48px"
+    },
+    "status_chip": {
+      "border_radius": "20px",
+      "padding": "6px 12px",
+      "font_size": "12sp"
+    },
+    "avatar_circle": {
+      "size": "48px",
+      "border_radius": "24px"
+    }
+  },
+  "bilingual_rules": {
+    "layout": "English text always stacked on top, with Urdu translation directly below in a smaller size.",
+    "alignment": "English is left-aligned or centered, Urdu translations adapt to standard RTL spacing where appropriate.",
+    "toggle": "Bilingual/language switcher toggle ('EN / اردو') placed inside the AppBar on every screen."
+  }
+}

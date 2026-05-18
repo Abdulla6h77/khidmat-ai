@@ -1,0 +1,36 @@
+{
+  "task_name": "ADK Environment Setup & OpenRouter Integration",
+  "timestamp": "2026-05-17T10:08:45Z",
+  "workplan": "Verify ADK imports, install litellm for OpenRouter/LiteLLM backend, confirm correct ADK Runner+Session pattern, test end-to-end with openai/gpt-4o-mini via OpenRouter",
+  "tasks_completed": [
+    "Verified google.adk is installed in system Python",
+    "Discovered LiteLLM is required for openai/* model patterns via google-adk[extensions]",
+    "Installed litellm in seekho venv",
+    "Determined correct ADK API: Agent(instruction=...) not instructions=...",
+    "Determined correct invocation: Runner + InMemorySessionService + run_async()",
+    "Confirmed OPENAI_API_KEY + OPENAI_API_BASE env var pattern for OpenRouter routing",
+    "Test agent responded successfully: 'Hello! I'm an AI assistant, also known as test_agent.'"
+  ],
+  "decisions_made": [
+    "Use LiteLLM as OpenRouter bridge (openai/* prefix maps to LiteLLM provider)",
+    "Set OPENAI_API_KEY=OPENROUTER_API_KEY and OPENAI_API_BASE=https://openrouter.ai/api/v1",
+    "Use ADK Runner+InMemorySessionService pattern (not direct agent() calls)",
+    "Wrap async run_agent() with asyncio.run() for sync usage in agents"
+  ],
+  "tools_called": [
+    "seekho venv pip install litellm",
+    "python -c introspection on google.adk.models",
+    "python -c on LiteLLM import error to find correct extension",
+    "test_adk.py end-to-end test"
+  ],
+  "files_created": [
+    "backend/test_adk.py",
+    "backend/agents/runner_utils.py"
+  ],
+  "errors_encountered": [
+    "instructions= param rejected (correct param is instruction=)",
+    "Agent() object not callable directly (must use Runner)",
+    "LiteLLM not installed initially: pip install litellm resolved it"
+  ],
+  "outcome": "ADK + OpenRouter + LiteLLM stack confirmed working. Base runner_utils.py created as shared foundation for all 8 agents."
+}

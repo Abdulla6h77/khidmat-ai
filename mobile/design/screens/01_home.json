@@ -1,0 +1,197 @@
+{
+  "screen_name": "HomeScreen",
+  "screen_index": 1,
+  "stitch_screen_id": "92e7dc57a07f4513924dd92fcdfc6e45",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopAppBar (Sticky Header)",
+      "WelcomeSection (Header Banner)",
+      "SearchCard (floating over header bottom)",
+      "CategoryChips (Horizontal Scroll)",
+      "RecentRequestsSection (Content Card)",
+      "BottomStickyAction (CTA)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_app_bar": {
+      "type": "Container",
+      "background": "linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)",
+      "padding": "16px 20px",
+      "children": {
+        "logo": {
+          "type": "Text",
+          "value": "KhidmatAI / خدمت اے آئی",
+          "color": "#FFFFFF",
+          "font_size": "20sp",
+          "weight": "Bold"
+        },
+        "lang_toggle": {
+          "type": "Button",
+          "text": "EN / اردو",
+          "text_color": "#FFFFFF",
+          "border": "1px solid rgba(255, 255, 255, 0.4)",
+          "border_radius": "20px",
+          "padding": "4px 10px"
+        }
+      }
+    },
+    "welcome_section": {
+      "type": "Container",
+      "background": "linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)",
+      "padding": "8px 20px 40px 20px",
+      "title_english": {
+        "text": "What service do you need?",
+        "color": "#FFFFFF",
+        "font_size": "24sp",
+        "weight": "Bold"
+      },
+      "title_urdu": {
+        "text": "آپ کو کون سی سروس چاہیے؟",
+        "color": "#E8F5E9",
+        "font_size": "20sp",
+        "weight": "Medium",
+        "margin_top": "4px",
+        "align": "right"
+      }
+    },
+    "search_card": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "margin_top": "-24px",
+      "margin_horizontal": "16px",
+      "padding": "14px 16px",
+      "box_shadow": "0px 4px 12px rgba(0, 0, 0, 0.05)",
+      "layout": "Row",
+      "children": {
+        "search_icon": {
+          "type": "Icon",
+          "icon": "magnifying_glass",
+          "color": "#757575"
+        },
+        "search_input": {
+          "type": "TextField",
+          "placeholder_english": "Search plumbing, AC, cleaning...",
+          "placeholder_urdu": "صفائی، پلمبر، اے سی سروس تلاش کریں...",
+          "text_color": "#212121",
+          "placeholder_color": "#9E9E9E",
+          "font_size": "14sp",
+          "flex": 1,
+          "margin_horizontal": "12px"
+        },
+        "mic_icon": {
+          "type": "IconButton",
+          "icon": "microphone",
+          "color": "#1B5E20"
+        }
+      }
+    },
+    "category_chips": {
+      "type": "HorizontalScrollView",
+      "padding": "16px 0px 16px 16px",
+      "gap": "10px",
+      "chips": [
+        {"icon": "🔧", "label_en": "AC Technician", "label_ur": "اے سی ٹیکنیشن"},
+        {"icon": "🔨", "label_en": "Plumber", "label_ur": "پلمبر", "selected": true},
+        {"icon": "⚡", "label_en": "Electrician", "label_ur": "الیکٹریشن"},
+        {"icon": "🏠", "label_en": "Home Cleaner", "label_ur": "صفائی"},
+        {"icon": "🪚", "label_en": "Carpenter", "label_ur": "بڑھئی"}
+      ]
+    },
+    "recent_requests_section": {
+      "type": "Container",
+      "padding": "0px 16px",
+      "title": {
+        "en": "Recent Requests",
+        "ur": "حالیہ درخواستیں",
+        "color": "#212121",
+        "font_size": "16sp",
+        "weight": "SemiBold"
+      },
+      "card": {
+        "type": "Card",
+        "background": "#FFFFFF",
+        "border_radius": "12px",
+        "padding": "16px",
+        "margin_top": "12px",
+        "border": "1px solid #E0E0E0",
+        "layout": "Row",
+        "children": {
+          "icon": {
+            "type": "Avatar",
+            "background": "#E8F5E9",
+            "child": "🔨",
+            "size": "40px"
+          },
+          "details": {
+            "type": "Column",
+            "margin_horizontal": "12px",
+            "flex": 1,
+            "title_en": "Plumber Needed in F-8",
+            "title_ur": "F-8 میں پلمبر کی ضرورت ہے",
+            "status_en": "Standardizing Booking Formats",
+            "status_ur": "بکنگ فارمیٹ کو ترتیب دیا جا رہا ہے",
+            "status_color": "#FFC107"
+          },
+          "arrow": {
+            "type": "Icon",
+            "icon": "chevron_right",
+            "color": "#BDBDBD"
+          }
+        }
+      }
+    },
+    "find_service_button": {
+      "type": "Button",
+      "background": "#1B5E20",
+      "border_radius": "12px",
+      "height": "48px",
+      "margin": "24px 16px 16px 16px",
+      "text_english": "Find Service",
+      "text_urdu": "سروس تلاش کریں",
+      "text_color": "#FFFFFF",
+      "font_size": "16sp",
+      "weight": "Bold"
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم", "selected": true},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ"},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "primary": "#1B5E20",
+      "gradient_end": "#2E7D32",
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "text_main": "#212121",
+      "text_muted": "#757575",
+      "accent": "#FFC107"
+    },
+    "typography": {
+      "font_family_en": "Inter, Roboto",
+      "font_family_ur": "Jameel Noori Nastaleeq",
+      "h1_size_en": "24sp",
+      "h1_size_ur": "20sp",
+      "body_size_en": "14sp",
+      "body_size_ur": "13sp"
+    },
+    "spacing": {
+      "screen_padding": "16px",
+      "card_padding": "16px",
+      "gap": "12px"
+    }
+  }
+}

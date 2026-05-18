@@ -1,0 +1,193 @@
+{
+  "screen_name": "ProvidersScreen",
+  "screen_index": 2,
+  "stitch_screen_id": "d7c18d8462c54ec3a2b9560461d0be3b",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopAppBar (Sticky Header)",
+      "AmberSuggestionBanner (Sticky Alert)",
+      "SortBar (Horizontal Scroll Chips)",
+      "ProvidersList (Vertical Scroll List)",
+      "BottomCompareAction (Sticky Footer Button)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_app_bar": {
+      "type": "Container",
+      "background": "#FFFFFF",
+      "border_bottom": "1px solid #E0E0E0",
+      "padding": "16px 20px",
+      "children": {
+        "back_button": {
+          "type": "IconButton",
+          "icon": "arrow_back",
+          "color": "#1B5E20"
+        },
+        "title_en": {
+          "type": "Text",
+          "value": "3 providers found in F-8",
+          "color": "#212121",
+          "font_size": "18sp",
+          "weight": "Bold"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "F-8 میں 3 فراہم کنندگان ملے",
+          "color": "#757575",
+          "font_size": "15sp",
+          "weight": "Medium"
+        },
+        "lang_toggle": {
+          "type": "Button",
+          "text": "EN / اردو",
+          "text_color": "#1B5E20",
+          "border": "1px solid #1B5E20",
+          "border_radius": "20px",
+          "padding": "4px 10px"
+        }
+      }
+    },
+    "amber_suggestion_banner": {
+      "type": "Container",
+      "background": "#FFC107",
+      "padding": "12px 16px",
+      "children": {
+        "icon": {
+          "type": "Icon",
+          "icon": "warning",
+          "color": "#212121"
+        },
+        "text_en": {
+          "type": "Text",
+          "value": "Sham not available. Showing nearest: 3PM",
+          "color": "#212121",
+          "font_size": "14sp",
+          "weight": "Medium"
+        },
+        "text_ur": {
+          "type": "Text",
+          "value": "شام دستیاب نہیں۔ قریب ترین: 3 بجے",
+          "color": "#212121",
+          "font_size": "13sp",
+          "weight": "Normal",
+          "margin_top": "2px"
+        }
+      }
+    },
+    "sort_bar": {
+      "type": "HorizontalScrollView",
+      "padding": "12px 16px",
+      "gap": "8px",
+      "chips": [
+        {"label_en": "Distance", "label_ur": "فاصلہ", "selected": true},
+        {"label_en": "Rating", "label_ur": "درجہ بندی"},
+        {"label_en": "Price", "label_ur": "قیمت"},
+        {"label_en": "Availability", "label_ur": "دستیابی"}
+      ]
+    },
+    "providers_list": {
+      "type": "ListView",
+      "padding": "0px 16px",
+      "gap": "12px",
+      "cards": [
+        {
+          "provider_id": "P005",
+          "avatar_initials": "TM",
+          "name": "Tariq Mahmood / طارق محمود",
+          "service_en": "Plumber",
+          "service_ur": "پلمبر",
+          "rating": "4.8",
+          "reviews_count": "120",
+          "price": "PKR 1,360",
+          "distance": "1.2 km",
+          "availability_status": "green",
+          "availability_en": "Available 3 PM",
+          "availability_ur": "دستیاب ٣ بجے"
+        },
+        {
+          "provider_id": "P002",
+          "avatar_initials": "SA",
+          "name": "Sajid Ali / ساجد علی",
+          "service_en": "Plumber",
+          "service_ur": "پلمبر",
+          "rating": "4.5",
+          "reviews_count": "80",
+          "price": "PKR 1,200",
+          "distance": "2.5 km",
+          "availability_status": "orange",
+          "availability_en": "Next Available: 4 PM",
+          "availability_ur": "دستیاب ٤ بجے"
+        },
+        {
+          "provider_id": "P008",
+          "avatar_initials": "MR",
+          "name": "Muhammad Rafiq / محمد رفیق",
+          "service_en": "Plumber",
+          "service_ur": "پلمبر",
+          "rating": "4.2",
+          "reviews_count": "45",
+          "price": "PKR 1,150",
+          "distance": "3.8 km",
+          "availability_status": "orange",
+          "availability_en": "Next Available: 5 PM",
+          "availability_ur": "دستیاب ٥ بجے"
+        }
+      ]
+    },
+    "compare_providers_button": {
+      "type": "Button",
+      "background": "#1B5E20",
+      "border_radius": "12px",
+      "height": "48px",
+      "margin": "16px",
+      "text_english": "Compare Providers",
+      "text_urdu": "فراہم کنندگان کا موازنہ",
+      "text_color": "#FFFFFF",
+      "font_size": "16sp",
+      "weight": "Bold"
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ", "selected": true},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "primary": "#1B5E20",
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "text_main": "#212121",
+      "text_muted": "#757575",
+      "accent": "#FFC107",
+      "success_chip": "#E8F5E9",
+      "success_text": "#388E3C",
+      "warning_chip": "#FFF3E0",
+      "warning_text": "#E65100"
+    },
+    "typography": {
+      "font_family_en": "Inter, Roboto",
+      "font_family_ur": "Jameel Noori Nastaleeq",
+      "h2_size_en": "18sp",
+      "h2_size_ur": "15sp",
+      "body_size_en": "14sp",
+      "body_size_ur": "13sp"
+    },
+    "spacing": {
+      "screen_padding": "16px",
+      "card_padding": "16px",
+      "gap": "12px"
+    }
+  }
+}

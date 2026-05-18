@@ -1,0 +1,206 @@
+{
+  "screen_name": "FollowUpScreen",
+  "screen_index": 5,
+  "stitch_screen_id": "e970dc3c373048209e1695d5a4cbb1b8",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopMapSection (250px high map image)",
+      "ProviderETAPanel (Floating card overlapping map)",
+      "VerticalStatusStepper (Service Timeline)",
+      "DemoControls (Segmented simulation controls)",
+      "PostCompletionFeedbackCard (Conditional Review card)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_map": {
+      "type": "Container",
+      "height": "250px",
+      "background_image": "minimalist_map_f8_islamabad",
+      "children": {
+        "route_line": {
+          "type": "Path",
+          "color": "#1B5E20",
+          "weight": "4px"
+        },
+        "provider_marker": {
+          "type": "Marker",
+          "icon": "plumbing",
+          "color": "#1B5E20",
+          "location": "Current coordinate"
+        },
+        "customer_marker": {
+          "type": "Marker",
+          "icon": "home",
+          "color": "#FFC107",
+          "location": "Destination coordinate"
+        }
+      }
+    },
+    "provider_eta_panel": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "padding": "16px",
+      "margin": "-24px 16px 16px 16px",
+      "elevation": "Level 2",
+      "layout": "Row",
+      "align": "Center",
+      "children": {
+        "avatar": {
+          "type": "Avatar",
+          "size": "48px",
+          "text": "TM",
+          "background": "#C8E6C9"
+        },
+        "details": {
+          "type": "Column",
+          "name_en": "Tariq Mahmood",
+          "name_ur": "طارق محمود",
+          "rating": "4.8 ⭐"
+        },
+        "eta": {
+          "type": "Column",
+          "align": "End",
+          "text_en": "Arriving in 12 mins",
+          "text_ur": "١٢ منٹ میں آمد",
+          "color": "#388E3C",
+          "weight": "Bold"
+        },
+        "actions": {
+          "type": "Row",
+          "gap": "8px",
+          "call_button": {
+            "type": "IconButton",
+            "icon": "call",
+            "background": "#388E3C",
+            "color": "#FFFFFF"
+          },
+          "message_button": {
+            "type": "IconButton",
+            "icon": "message",
+            "background": "#1B5E20",
+            "color": "#FFFFFF"
+          }
+        }
+      }
+    },
+    "vertical_status_stepper": {
+      "type": "Container",
+      "padding": "16px",
+      "background": "#FFFFFF",
+      "margin": "16px",
+      "border_radius": "12px",
+      "border": "1px solid #E0E0E0",
+      "steps": [
+        {
+          "index": 1,
+          "title_en": "Booking Confirmed",
+          "title_ur": "بکنگ کی تصدیق ہو گئی",
+          "status": "completed",
+          "icon": "check_circle"
+        },
+        {
+          "index": 2,
+          "title_en": "Provider En Route",
+          "title_ur": "فراہم کنندہ راستے میں ہے",
+          "status": "active",
+          "icon": "directions_run",
+          "subtext_en": "Tariq is 1.2 km away",
+          "subtext_ur": "طارق ١.٢ کلومیٹر دور ہے"
+        },
+        {
+          "index": 3,
+          "title_en": "Arrived",
+          "title_ur": "پہنچ گئے",
+          "status": "upcoming",
+          "icon": "location_on"
+        },
+        {
+          "index": 4,
+          "title_en": "Work In Progress",
+          "title_ur": "کام جاری ہے",
+          "status": "upcoming",
+          "icon": "handyman"
+        },
+        {
+          "index": 5,
+          "title_en": "Service Completed",
+          "title_ur": "کام مکمل ہو گیا",
+          "status": "upcoming",
+          "icon": "task_alt"
+        }
+      ]
+    },
+    "demo_controls": {
+      "type": "Container",
+      "padding": "12px",
+      "background": "#EEEEEE",
+      "margin": "16px",
+      "border_radius": "12px",
+      "title_en": "Demo / Test Statuses",
+      "title_ur": "ٹیسٹ اور ڈیمو کنٹرولز",
+      "buttons": [
+        {"state": "EN_ROUTE", "label": "En Route"},
+        {"state": "ARRIVED", "label": "Arrived"},
+        {"state": "IN_PROGRESS", "label": "In Progress"},
+        {"state": "COMPLETED", "label": "Complete"}
+      ]
+    },
+    "feedback_card": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "padding": "16px",
+      "margin": "16px",
+      "border": "1px solid #E0E0E0",
+      "title_en": "Rate your service",
+      "title_ur": "سروس کی درجہ بندی کریں",
+      "rating_stars": {
+        "type": "StarRating",
+        "stars": 5,
+        "selected": 0
+      },
+      "comment_input": {
+        "type": "TextField",
+        "placeholder_en": "Write your review...",
+        "placeholder_ur": "اپنا جائزہ لکھیں...",
+        "multiline": true
+      },
+      "submit_button": {
+        "type": "Button",
+        "background": "#1B5E20",
+        "text_en": "Submit Feedback",
+        "text_ur": "جائزہ جمع کروائیں",
+        "text_color": "#FFFFFF"
+      }
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ"},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "primary": "#1B5E20",
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "status_active": "#388E3C",
+      "star_gold": "#FFC107"
+    },
+    "shapes": {
+      "border_radius": "12px"
+    }
+  }
+}

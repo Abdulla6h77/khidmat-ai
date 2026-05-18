@@ -1,0 +1,29 @@
+{
+  "task_name": "pipeline_fix",
+  "timestamp": "2026-05-17T11:44:02Z",
+  "workplan": "Fix pipeline to stop after pricing agent on /api/request",
+  "decisions_made": [
+    "/api/request now stops after pricing_agent",
+    "/api/book handles full booking lifecycle",
+    "awaiting_confirmation field added to /api/request response",
+    "time_slot now maps to actual provider slot not next_available",
+    "user_id defaults to guest_user not anonymous"
+  ],
+  "tools_called": [
+    "pipeline.py",
+    "main.py",
+    "booking_agent.py"
+  ],
+  "files_created": [
+    "backend/pipeline.py (modified)",
+    "backend/main.py (modified)",
+    "backend/agents/booking_agent.py (modified)"
+  ],
+  "errors_encountered": [
+    "pipeline was running all 7 agents on /api/request",
+    "time_slot was saving as next_available",
+    "user_id was saving as anonymous",
+    "two inconsistent booking document formats existed"
+  ],
+  "outcome": "Pipeline fixed to stop after pricing on /api/request. Booking only happens via explicit /api/book call."
+}

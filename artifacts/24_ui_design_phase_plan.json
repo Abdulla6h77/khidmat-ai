@@ -1,0 +1,39 @@
+{
+  "task_name": "ui_design_phase_plan",
+  "timestamp": "2026-05-17T12:39:14Z",
+  "workplan": "Design all 8 KhidmatAI screens using StitchMCP before any Flutter code is written. Steps: (1) Create StitchMCP project named KhidmatAI for mobile. (2) Configure design system with exact color tokens: Primary #1B5E20, Secondary #2E7D32, Accent #FFC107, Background #F5F5F5, Error #D32F2F, Success #388E3C, 12px corner radius, 16-24px spacing, Inter/Roboto sans-serif. (3) Generate all 8 screens in Stitch: HomeScreen, ProvidersScreen, ProviderDetailScreen, BookingConfirmationScreen, FollowUpScreen, AgentTraceScreen, DisputeScreen, BaselineCompareScreen. (4) Save design_tokens.json and 8 screen JSON files to mobile/design/. (5) Save 24_ui_design_phase.json artifact.",
+  "decisions_made": [
+    "Use StitchMCP for all screen designs before any Flutter code",
+    "Careem-inspired minimal clean design pattern",
+    "Bilingual English and Urdu with equal visual weight on every screen",
+    "Primary green #1B5E20 palette with amber #FFC107 accent",
+    "Card-based layout with 12px corner radius throughout",
+    "Bottom sheet for confirmations not new screens",
+    "Horizontal chip rows for service categories and availability slots",
+    "Vertical timeline stepper for FollowUpScreen",
+    "Colored left-border cards for AgentTraceScreen by agent type",
+    "Two-column comparison table for BaselineCompareScreen",
+    "Bottom navigation bar: Home, Providers, AI Trace, Compare",
+    "No Flutter code until all 8 designs are approved"
+  ],
+  "tools_called": [
+    "mcp_StitchMCP_create_project",
+    "mcp_StitchMCP_create_design_system",
+    "mcp_StitchMCP_generate_screen_from_text (x8 screens)",
+    "write_to_file (design_tokens.json + 8 screen JSONs + artifacts)"
+  ],
+  "files_to_create": [
+    "mobile/design/design_tokens.json",
+    "mobile/design/screens/01_home.json",
+    "mobile/design/screens/02_providers.json",
+    "mobile/design/screens/03_detail.json",
+    "mobile/design/screens/04_booking.json",
+    "mobile/design/screens/05_followup.json",
+    "mobile/design/screens/06_trace.json",
+    "mobile/design/screens/07_dispute.json",
+    "mobile/design/screens/08_baseline.json",
+    "artifacts/24_ui_design_phase.json"
+  ],
+  "errors_encountered": [],
+  "outcome": "Plan approved by user. Executing StitchMCP design phase now."
+}

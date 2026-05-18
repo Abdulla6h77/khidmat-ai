@@ -1,0 +1,213 @@
+{
+  "screen_name": "BaselineCompareScreen",
+  "screen_index": 8,
+  "stitch_screen_id": "8e05eb6d8e034897adf365c64f1a52d1",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopAppBar (Back, Title, Language Toggle)",
+      "IntroductionHeader (Bilingual prompt)",
+      "ComparisonTableCard (Feature matrix: Simple App vs. KhidmatAI)",
+      "LiveComparisonHeader (Bilingual)",
+      "DualQueryCards (Simple App failure vs. KhidmatAI AI match)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_app_bar": {
+      "type": "Container",
+      "background": "#FFFFFF",
+      "border_bottom": "1px solid #E0E0E0",
+      "padding": "16px 20px",
+      "children": {
+        "back_button": {
+          "type": "IconButton",
+          "icon": "arrow_back",
+          "color": "#1B5E20"
+        },
+        "title_en": {
+          "type": "Text",
+          "value": "Why KhidmatAI?",
+          "color": "#1B5E20",
+          "font_size": "18sp",
+          "weight": "Bold"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "کیوں خدمت اے آئی؟",
+          "color": "#757575",
+          "font_size": "15sp",
+          "weight": "Medium"
+        },
+        "lang_toggle": {
+          "type": "Button",
+          "text": "EN / اردو",
+          "color": "#1B5E20",
+          "background": "transparent"
+        }
+      }
+    },
+    "intro_header": {
+      "type": "Container",
+      "padding": "16px",
+      "children": {
+        "text_en": {
+          "type": "Text",
+          "value": "Comparing standard service apps with our AI-powered intelligent matches",
+          "color": "#212121",
+          "font_size": "15sp",
+          "weight": "SemiBold"
+        },
+        "text_ur": {
+          "type": "Text",
+          "value": "عام سروس ایپس کا ہمارے اے آئی سے چلنے والے ذہین میچز سے موازنہ",
+          "color": "#616161",
+          "font_size": "14sp"
+        }
+      }
+    },
+    "comparison_table_card": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "padding": "16px",
+      "margin": "0px 16px 16px 16px",
+      "border": "1px solid #E0E0E0",
+      "children": {
+        "table_headers": {
+          "type": "Row",
+          "border_bottom": "1.5px solid #EEEEEE",
+          "padding": "0px 0px 8px 0px",
+          "columns": [
+            {"value_en": "Feature", "value_ur": "خصوصیت", "flex": 2},
+            {"value_en": "Simple App", "value_ur": "عام ایپ", "flex": 2, "color": "#D32F2F"},
+            {"value_en": "KhidmatAI", "value_ur": "خدمت اے آئی", "flex": 3, "color": "#1B5E20"}
+          ]
+        },
+        "rows": [
+          {
+            "feature_en": "Urdu Search",
+            "feature_ur": "اردو تلاش",
+            "simple_en": "No (Error)",
+            "simple_ur": "نہیں",
+            "khidmat_en": "Yes (98% Acc)",
+            "khidmat_ur": "جی ہاں"
+          },
+          {
+            "feature_en": "Matching",
+            "feature_ur": "میچنگ",
+            "simple_en": "Basic",
+            "simple_ur": "بنیادی",
+            "khidmat_en": "7-Factor AI",
+            "khidmat_ur": "۷-فیکٹر اے آئی"
+          },
+          {
+            "feature_en": "Slot Suggest",
+            "feature_ur": "سلاٹ تجویز",
+            "simple_en": "❌ None",
+            "simple_ur": "❌ کچھ نہیں",
+            "khidmat_en": "✅ Smart Shift",
+            "khidmat_ur": "✅ سمارٹ شفٹ"
+          },
+          {
+            "feature_en": "Pricing",
+            "feature_ur": "قیمت کا تعین",
+            "simple_en": "Fixed",
+            "simple_ur": "مقررہ",
+            "khidmat_en": "Dynamic & Fair",
+            "khidmat_ur": "منصفانہ اور متحرک"
+          },
+          {
+            "feature_en": "Dispute Resolution",
+            "feature_ur": "تنازعات کا حل",
+            "simple_en": "Manual (Days)",
+            "simple_ur": "دستی (دن)",
+            "khidmat_en": "AI-Instant (Secs)",
+            "khidmat_ur": "اے آئی (سیکنڈ)"
+          }
+        ]
+      }
+    },
+    "live_comparison_section": {
+      "type": "Container",
+      "padding": "0px 16px 16px 16px",
+      "children": {
+        "header_en": {
+          "type": "Text",
+          "value": "Live Query Matching Comparison",
+          "color": "#1B5E20",
+          "font_size": "16sp",
+          "weight": "Bold"
+        },
+        "header_ur": {
+          "type": "Text",
+          "value": "لائیو میچنگ کا موازنہ",
+          "color": "#757575",
+          "font_size": "14sp",
+          "margin": "2px 0px 12px 0px"
+        },
+        "simple_app_card": {
+          "type": "Card",
+          "background": "#FFEBEE",
+          "border": "1.5px solid #FFCDD2",
+          "border_radius": "12px",
+          "padding": "16px",
+          "margin": "0px 0px 12px 0px",
+          "children": {
+            "title_en": "Simple App Search",
+            "title_ur": "عام ایپ کی تلاش",
+            "status_en": "NO PROVIDERS FOUND",
+            "status_ur": "کوئی فراہم کنندہ نہیں ملا",
+            "status_color": "#D32F2F",
+            "reasoning_en": "Failed to search \"Aaj sham ko plumber chahiye F-8 mein\" because it has Urdu words and doesn't match direct keyword \"plumber\" at exactly 3:00 PM.",
+            "reasoning_ur": "اردو الفاظ کی وجہ سے سرچ فیل ہوئی، اور پلمبر کی تلاش دوپہر ٣:٠٠ بجے پر میچ نہیں ہوئی۔"
+          }
+        },
+        "khidmat_app_card": {
+          "type": "Card",
+          "background": "#E8F5E9",
+          "border": "1.5px solid #C8E6C9",
+          "border_radius": "12px",
+          "padding": "16px",
+          "children": {
+            "title_en": "KhidmatAI Intelligent Search",
+            "title_ur": "خدمت اے آئی",
+            "status_en": "TARIQ MAHMOOD FOUND",
+            "status_ur": "طارق محمود مل گئے",
+            "status_color": "#388E3C",
+            "reasoning_en": "AI parsed Urdu query, extracted plumbing intent in F-8, and suggested shifting the slot by 30 mins to match Tariq Mahmood successfully.",
+            "reasoning_ur": "اے آئی نے اردو سرچ کو سمجھا، ایف-٨ میں پلمبر کی نیت کو نکالا اور طارق محمود کے لیے ٣٠ منٹ سلاٹ شفٹ کی سمارٹ تجویز دی سروس میچ کرنے کے لیے۔"
+          }
+        }
+      }
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ"},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ", "selected": true}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "primary_green": "#1B5E20",
+      "simple_red": "#D32F2F",
+      "success_green": "#388E3C",
+      "simple_bg": "#FFEBEE",
+      "khidmat_bg": "#E8F5E9"
+    },
+    "shapes": {
+      "border_radius": "12px"
+    }
+  }
+}

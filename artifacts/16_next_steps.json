@@ -1,0 +1,14 @@
+{
+  "task_name": "next_steps",
+  "timestamp": "2026-05-17T00:00:00Z",
+  "remaining_tasks": [
+    "Build Flutter mobile app with 8 screens",
+    "Connect Flutter to FastAPI backend",
+    "Add voice input using speech_to_text",
+    "Build baseline comparison screen",
+    "Test all stress test scenarios",
+    "Record demo videos",
+    "Write README documentation",
+    "Build APK for submission"
+  ]
+}

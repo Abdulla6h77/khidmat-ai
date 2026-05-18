@@ -1,0 +1,22 @@
+{
+  "task_name": "followup_screen_design",
+  "timestamp": "2026-05-17T20:42:15+05:00",
+  "screen": "FollowUpScreen",
+  "key_components": [
+    "Map placeholder with F-8 Islamabad location pin",
+    "Floating ETA overlay card",
+    "Vertical timeline stepper with 5 steps",
+    "Current step highlighted in green",
+    "Demo simulation buttons for hackathon",
+    "Slide-up feedback card after completion",
+    "Star rating widget and text field"
+  ],
+  "timeline_steps": [
+    "Booking Confirmed / بکنگ تصدیق",
+    "En Route / راستے میں",
+    "Arrived / پہنچ گئے",
+    "In Progress / کام جاری",
+    "Completed / مکمل"
+  ],
+  "outcome": "Follow up screen design complete with Careem-style tracking timeline"
+}

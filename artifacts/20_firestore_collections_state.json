@@ -1,0 +1,23 @@
+{
+  "task_name": "firestore_collections_state",
+  "timestamp": "2026-05-17T11:44:02Z",
+  "workplan": "Document current state of all Firestore collections",
+  "decisions_made": [
+    "providers collection has 20 documents - do not modify",
+    "bookings collection has test documents to be cleaned",
+    "notifications collection has test documents to be cleaned",
+    "disputes collection has placeholder only"
+  ],
+  "tools_called": [
+    "Firebase Console",
+    "firebase_client.py"
+  ],
+  "files_created": [
+    "backend/firebase_client.py (added clear_test_documents utility)"
+  ],
+  "errors_encountered": [
+    "Test runs wrote real documents to Firestore",
+    "Two different booking formats found from different agent versions"
+  ],
+  "outcome": "Collections documented. Cleanup utility added to firebase_client.py."
+}

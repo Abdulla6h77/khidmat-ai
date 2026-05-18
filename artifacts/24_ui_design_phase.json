@@ -1,0 +1,131 @@
+{
+  "phase": "UI_DESIGN_PHASE",
+  "project_name": "KhidmatAI",
+  "stitch_project_id": "14534290212697051663",
+  "timestamp": "2026-05-17T12:53:00Z",
+  "design_direction": {
+    "reference_app": "Careem (clean, minimal, trustworthy)",
+    "colors": {
+      "primary": "#1B5E20",
+      "secondary": "#2E7D32",
+      "accent": "#FFC107",
+      "background": "#F5F5F5",
+      "card_background": "#FFFFFF",
+      "error_dispute": "#D32F2F",
+      "success": "#388E3C"
+    },
+    "typography": "Clean sans-serif (Be Vietnam Pro for English, Noto Sans Arabic for Urdu)",
+    "corner_radius": "12px",
+    "shadow": "Subtle ambient shadows (Y: 2px, Blur: 8px, Opacity: 4%)",
+    "spacing": "16-24px generous padding"
+  },
+  "bilingual_rules": [
+    "Every text element is bilingual",
+    "English on top, Urdu translation directly below in smaller size",
+    "Urdu uses RTL layout where appropriate",
+    "Language toggle button (EN / اردو) on every screen's app bar",
+    "English body: 14-16sp, Urdu body: 13-15sp (bumped by 2px visually)"
+  ],
+  "screens": [
+    {
+      "index": 1,
+      "name": "HomeScreen",
+      "stitch_screen_id": "92e7dc57a07f4513924dd92fcdfc6e45",
+      "file_path": "mobile/design/screens/01_home.json",
+      "key_components": [
+        "Bilingual search header (urdu input support)",
+        "Service category grid (Plumbing, Electrical, etc.)",
+        "Active & Past Booking cards",
+        "Bottom navigation bar"
+      ]
+    },
+    {
+      "index": 2,
+      "name": "ProvidersScreen",
+      "stitch_screen_id": "d7c18d8462c54ec3a2b9560461d0be3b",
+      "file_path": "mobile/design/screens/02_providers.json",
+      "key_components": [
+        "Amber info banner highlighting parsed search parameters",
+        "Provider list items styled like Careem ride selections",
+        "Sort & filter chips",
+        "AI reasoning highlight badge"
+      ]
+    },
+    {
+      "index": 3,
+      "name": "ProviderDetailScreen",
+      "stitch_screen_id": "ce8c1a88b17649bca37b6d1c023530c8",
+      "file_path": "mobile/design/screens/03_detail.json",
+      "key_components": [
+        "Profile header with avatar circle and name",
+        "2x2 metrics grid (Rating, On-Time, Reviews, Cancellation)",
+        "Collapsible pricing breakdown",
+        "AI slot recommendation pill",
+        "Collapsible AI matching reasoning panel",
+        "Sticky booking footer bar"
+      ]
+    },
+    {
+      "index": 4,
+      "name": "BookingConfirmationScreen",
+      "stitch_screen_id": "1b2b4e4e274d4ebda51ec7d056bd6456",
+      "file_path": "mobile/design/screens/04_booking_confirmation.json",
+      "key_components": [
+        "Animated success checkmark and booking code 526377",
+        "Bilingual notification opt-in panel",
+        "Receipt card with breakdown of dynamic factors",
+        "Double-stacked primary CTAs"
+      ]
+    },
+    {
+      "index": 5,
+      "name": "FollowUpScreen",
+      "stitch_screen_id": "e970dc3c373048209e1695d5a4cbb1b8",
+      "file_path": "mobile/design/screens/05_follow_up.json",
+      "key_components": [
+        "Interactive F-8 Islamabad map showing active route",
+        "Provider status sheet (En Route, Arrived, In Progress, Done)",
+        "Bilingual vertical progress timeline",
+        "Post-service feedback overlay"
+      ]
+    },
+    {
+      "index": 6,
+      "name": "AgentTraceScreen",
+      "stitch_screen_id": "0705f6771cf04a3cbe8c0f4562dd830a",
+      "file_path": "mobile/design/screens/06_agent_trace.json",
+      "key_components": [
+        "Processing time summary (1.8s banner)",
+        "Color-coded chronological pipeline blocks",
+        "Expanded state illustrating parsed payloads",
+        "Export log CTA"
+      ]
+    },
+    {
+      "index": 7,
+      "name": "DisputeScreen",
+      "stitch_screen_id": "11bc5f9dc4f047e4bb9097b22173ae81",
+      "file_path": "mobile/design/screens/07_dispute.json",
+      "key_components": [
+        "Booking summary contextual header",
+        "2x2 dispute categories grid (Price, Quality, No-Show, Cancellation)",
+        "Bilingual auto-refund slider sheet",
+        "AI reasoning explanation panel",
+        "Severity level badges"
+      ]
+    },
+    {
+      "index": 8,
+      "name": "BaselineCompareScreen",
+      "stitch_screen_id": "8e05eb6d8e034897adf365c64f1a52d1",
+      "file_path": "mobile/design/screens/08_compare.json",
+      "key_components": [
+        "Features comparison table (Simple App vs. KhidmatAI)",
+        "Side-by-side live logic parser analysis",
+        "Urdu parsing and dynamic shift success illustrations",
+        "CTAs driving onboarding and trust alignment"
+      ]
+    }
+  ],
+  "outcome": "All 8 screens designed inside Stitch, matching specified colors and bilingual guidelines. Screen logic completely documented as local JSON configuration files in mobile/design/screens/ for direct ingestion in the upcoming Flutter implementation phase."
+}

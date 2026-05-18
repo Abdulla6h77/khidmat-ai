@@ -1,0 +1,820 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhidmatAI DisputeScreen Preview</title>
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+  
+  :root {
+    --primary: #1B5E20;
+    --primary-gradient: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    --secondary: #2E7D32;
+    --accent: #FFC107;
+    --background: #F5F5F5;
+    --card: #FFFFFF;
+    --error: #D32F2F;
+    --success: #388E3C;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --divider: #E0E0E0;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    overflow-x: hidden;
+  }
+
+  /* Interactive Dashboard Shell */
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 320px;
+    padding: 32px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4CAF50;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sidebar-header p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .screens-menu {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .screens-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #b0bec5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .screens-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+
+  .screens-menu li.active a {
+    background: rgba(76, 175, 80, 0.15);
+    border-color: rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+    font-weight: 600;
+  }
+
+  .screens-menu-index {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .screens-menu li.active .screens-menu-index {
+    background: #4CAF50;
+    color: #121212;
+  }
+
+  .sidebar-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sidebar-footer-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .design-rules {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  /* Phone Mockup Frame */
+  .preview-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .phone-frame {
+    width: 375px;
+    height: 812px;
+    background: var(--background);
+    border-radius: 48px;
+    box-shadow: 0 0 0 12px #2b2b2b, 0 0 0 13px #3d3d3d, 0 20px 40px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+  }
+
+  /* Phone Notch & Speaker */
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 26px;
+    background: #2b2b2b;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone-speaker {
+    width: 40px;
+    height: 4px;
+    background: #111;
+    border-radius: 2px;
+    margin-bottom: 4px;
+  }
+
+  .phone-camera {
+    width: 8px;
+    height: 8px;
+    background: #111;
+    border-radius: 50%;
+    position: absolute;
+    right: 28px;
+    top: 8px;
+  }
+
+  /* Phone Status Bar */
+  .status-bar {
+    height: 38px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 24px 6px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #212121;
+    z-index: 999;
+    position: relative;
+  }
+
+  .status-bar.dark-text {
+    color: #212121;
+  }
+
+  .status-bar.light-text {
+    color: #FFFFFF;
+  }
+
+  .status-bar-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .status-bar-icon {
+    font-size: 10px;
+  }
+
+  /* Interactive State Controller Overlay */
+  .state-controller {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+  }
+
+  .state-controller h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+
+  .state-btn {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+  }
+
+  .state-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .state-btn.active {
+    background: #4CAF50;
+    color: #121212;
+    font-weight: 600;
+  }
+
+  /* App Native Components Base styling */
+  .app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: var(--background);
+    position: relative;
+    padding-bottom: 60px; /* Space for Bottom Navigation */
+  }
+
+  .app-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bilingual-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .bilingual-label .en {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .bilingual-label .ur {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    color: var(--text-secondary);
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Mode Selectors */
+  body.mode-en .bilingual-label .ur { display: none !important; }
+  body.mode-ur .bilingual-label .en { display: none !important; }
+  body.mode-ur .bilingual-label .ur { text-align: left; direction: ltr; } /* Align cleanly in single mode */
+
+  /* Common App Header */
+  .app-bar {
+    background: var(--card);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+
+  .app-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .back-btn {
+    font-size: 20px;
+    color: var(--primary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-bar-title .en {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .app-bar-title .ur {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .lang-toggle-btn {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-toggle-btn:hover {
+    background: rgba(27, 94, 32, 0.05);
+  }
+
+  /* Bottom Navigation Bar */
+  .app-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .app-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    gap: 4px;
+    flex: 1;
+    height: 100%;
+    transition: all 0.2s;
+  }
+
+  .app-nav-item i {
+    font-size: 18px;
+  }
+
+  .app-nav-item span {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .app-nav-item.active {
+    color: var(--primary);
+  }
+
+  .app-nav-item.active span {
+    font-weight: 700;
+  }
+
+  /* Material Icons Helper */
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+  
+  .material-icons {
+    font-family: 'Material Icons' !important;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+  }
+
+    
+    /* Dispute specific CSS overrides */
+    .dispute-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 0 16px;
+    }
+    
+    .dispute-card {
+      background: #fff;
+      border: 1.5px solid var(--divider);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+      transition: all 0.2s;
+    }
+    
+    .dispute-card i {
+      color: var(--error);
+      font-size: 28px;
+    }
+    
+    .dispute-card.selected {
+      border-color: var(--error);
+      background: #FFEBEE;
+      box-shadow: 0 4px 12px rgba(211,47,47,0.1);
+    }
+    
+    .dispute-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .dispute-card-title.ur {
+      font-family: 'Noto Sans Arabic', sans-serif;
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+    
+    /* Sliding Resolution Sheet Overlay styles */
+    .bottom-sheet {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.15);
+      padding: 24px 20px 20px 20px;
+      z-index: 95;
+      animation: slideUpSheet 0.4s cubic-bezier(0.1, 0.76, 0.55, 0.94);
+    }
+    
+    @keyframes slideUpSheet {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(0); }
+    }
+    
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    
+    .amber-badge {
+      background: var(--accent);
+      color: #212121;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    
+    .green-badge {
+      background: #E8F5E9;
+      color: #388E3C;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    
+    .compensation-banner {
+      background: #FFF9C4;
+      border: 1px solid #FFF59D;
+      border-radius: 8px;
+      padding: 12px;
+      color: #F57F17;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .reason-box {
+      background: var(--background);
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 12px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="material-icons">dashboard</i> KhidmatAI</h2>
+        <p>Bilingual AI-powered home service marketplace UI preview showcase.</p>
+        <ul class="screens-menu">
+          
+            <li class="">
+              <a href="01_home.html">
+                <span class="screens-menu-index">1</span>
+                <span>HomeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="02_providers.html">
+                <span class="screens-menu-index">2</span>
+                <span>ProvidersScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="03_detail.html">
+                <span class="screens-menu-index">3</span>
+                <span>ProviderDetailScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="04_booking_confirmation.html">
+                <span class="screens-menu-index">4</span>
+                <span>BookingConfirmationScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="05_follow_up.html">
+                <span class="screens-menu-index">5</span>
+                <span>FollowUpScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="06_agent_trace.html">
+                <span class="screens-menu-index">6</span>
+                <span>AgentTraceScreen</span>
+              </a>
+            </li>
+          
+            <li class="active">
+              <a href="07_dispute.html">
+                <span class="screens-menu-index">7</span>
+                <span>DisputeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="08_compare.html">
+                <span class="screens-menu-index">8</span>
+                <span>BaselineCompareScreen</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-title">Bilingual Design Rules</div>
+        <p class="design-rules">
+          1. Englishstacked on top, Urdu translation directly below.<br>
+          2. Language Toggle in Header simulates localized user contexts.<br>
+          3. Minimal, clean Careem-inspired geometry and soft gradients.
+        </p>
+      </div>
+    </div>
+  
+    
+    <div class="preview-area">
+      <!-- Phone Frame Mockup -->
+      <div class="phone-frame">
+        <div class="phone-notch">
+          <div class="phone-speaker"></div>
+        </div>
+        
+    <div class="status-bar dark-text">
+      <span>15:00</span>
+      <div class="status-bar-icons">
+        <i class="material-icons status-bar-icon">signal_cellular_4_bar</i>
+        <i class="material-icons status-bar-icon">wifi</i>
+        <i class="material-icons status-bar-icon">battery_full</i>
+      </div>
+    </div>
+  
+        
+        <div class="app-container" style="padding-bottom:280px;">
+          <!-- AppBar -->
+          <div class="app-bar">
+            <div class="app-bar-left">
+              <button class="back-btn" onclick="location.href='05_follow_up.html'"><i class="material-icons">arrow_back</i></button>
+              <div class="app-bar-title">
+                <span class="en">Report an Issue</span>
+                <span class="ur">مسئلہ رپورٹ کریں</span>
+              </div>
+            </div>
+            <button class="lang-toggle-btn">EN / اردو</button>
+          </div>
+          
+          <!-- Booking Context card -->
+          <div class="recent-card" style="margin-top: 16px;">
+            <div style="flex:1;">
+              <div class="bilingual-label">
+                <span class="en" style="font-size:13px; font-weight:700;">Booking Plumber Tariq Mahmood on May 17, 3 PM</span>
+                <span class="ur" style="font-size:11px;">بکنگ پلمبر طارق محمود، ١٧ مئی دوپہر ٣ بجے</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Dispute Categories Grid -->
+          <div class="dispute-grid">
+            <div class="dispute-card">
+              <i class="material-icons">person_off</i>
+              <div>
+                <div class="dispute-card-title en">Provider No Show</div>
+                <div class="dispute-card-title ur">فراہم کنندہ نہیں آیا</div>
+              </div>
+            </div>
+            
+            <div class="dispute-card selected">
+              <i class="material-icons">attach_money</i>
+              <div>
+                <div class="dispute-card-title en">Price Disagreement</div>
+                <div class="dispute-card-title ur">قیمت پر اختلاف</div>
+              </div>
+            </div>
+            
+            <div class="dispute-card">
+              <i class="material-icons">report_problem</i>
+              <div>
+                <div class="dispute-card-title en">Quality Complaint</div>
+                <div class="dispute-card-title ur">کام کے معیار پر شکایت</div>
+              </div>
+            </div>
+            
+            <div class="dispute-card">
+              <i class="material-icons">cancel</i>
+              <div>
+                <div class="dispute-card-title en">Cancellation</div>
+                <div class="dispute-card-title ur">منسوخی</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom Resolution Drawer Sheet -->
+          <div class="bottom-sheet">
+            <div class="bilingual-label">
+              <span class="en" style="font-size: 18px; font-weight:800; color:var(--primary);">Price Disagreement Resolution</span>
+              <span class="ur" style="font-size: 15px; font-weight:500; color:var(--secondary);">قیمت کے بارے میں حل</span>
+            </div>
+            
+            <div class="badge-row">
+              <span class="amber-badge">
+                <div class="bilingual-label">
+                  <span class="en">Level 1: Auto-Refund</span>
+                  <span class="ur">لیول ۱: خودکار ریفنڈ</span>
+                </div>
+              </span>
+              <span class="green-badge">
+                <div class="bilingual-label">
+                  <span class="en">Severity: LOW</span>
+                  <span class="ur">شدت: کم</span>
+                </div>
+              </span>
+            </div>
+            
+            <!-- Compensation banner -->
+            <div class="compensation-banner">
+              <div class="bilingual-label">
+                <span class="en" style="color:#F57F17;">PKR 300 Wallet Credit</span>
+                <span class="ur" style="color:#F57F17; font-size:12px;">٣٠٠ روپے والیٹ کریڈٹ</span>
+              </div>
+            </div>
+            
+            <!-- Reasoning Explanation -->
+            <div class="reason-box">
+              <div class="bilingual-label">
+                <span class="en">AI detected Tariq Mahmood charged PKR 60 extra distance fee incorrectly. The extra amount will be credited to your wallet.</span>
+                <span class="ur">اے آئی نے پایا کہ طارق نے اضافی فاصلہ چارجز غلط لگا دیے۔ اضافی رقم آپ کے والیٹ میں منتقل کی جائے گی۔</span>
+              </div>
+            </div>
+            
+            <!-- CTA action button -->
+            <button class="compare-btn" onclick="location.href='08_compare.html'">
+              <div class="bilingual-label" style="align-items: center; gap: 0;">
+                <span class="en" style="color:#fff;">Accept Resolution</span>
+                <span class="ur" style="color:#E8F5E9; font-size:12px;">حل منظور کریں</span>
+              </div>
+            </button>
+          </div>
+          
+          <!-- Bottom Navigation -->
+          <div class="app-bottom-nav">
+            <a href="01_home.html" class="app-nav-item">
+              <i class="material-icons">home</i>
+              <span>ہوم / Home</span>
+            </a>
+            <a href="02_providers.html" class="app-nav-item">
+              <i class="material-icons">people</i>
+              <span>پلمبرز / Providers</span>
+            </a>
+            <a href="06_agent_trace.html" class="app-nav-item">
+              <i class="material-icons">analytics</i>
+              <span>ٹریس / AI Trace</span>
+            </a>
+            <a href="08_compare.html" class="app-nav-item">
+              <i class="material-icons">compare_arrows</i>
+              <span>موازنہ / Compare</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  function toggleLanguage() {
+    const currentMode = document.body.className;
+    if (currentMode === '') {
+      document.body.className = 'mode-en';
+      updateLangBtnText('ENGLISH');
+    } else if (currentMode === 'mode-en') {
+      document.body.className = 'mode-ur';
+      updateLangBtnText('اردو');
+    } else {
+      document.body.className = '';
+      updateLangBtnText('EN / اردو');
+    }
+  }
+
+  function updateLangBtnText(text) {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => btn.innerText = text);
+  }
+
+  // Inject language click event automatically
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', toggleLanguage);
+    });
+  });
+
+  </script>
+</body>
+</html>

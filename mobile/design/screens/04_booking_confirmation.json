@@ -1,0 +1,211 @@
+{
+  "screen_name": "BookingConfirmationScreen",
+  "screen_index": 4,
+  "stitch_screen_id": "1b2b4e4e274d4ebda51ec7d056bd6456",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopBar (Header)",
+      "SuccessIconHeader (Animated Green Checkmark)",
+      "BookingReceiptCard (Receipt Details)",
+      "NotificationPreviewTabs (WhatsApp Layout)",
+      "CTAButtons (Track & View Trace)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_bar": {
+      "type": "Container",
+      "background": "#FFFFFF",
+      "border_bottom": "1px solid #E0E0E0",
+      "padding": "16px 20px",
+      "children": {
+        "title_en": {
+          "type": "Text",
+          "value": "Booking Confirmed",
+          "color": "#1B5E20",
+          "font_size": "18sp",
+          "weight": "Bold"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "بکنگ کی تصدیق ہو گئی",
+          "color": "#757575",
+          "font_size": "15sp",
+          "weight": "Medium"
+        },
+        "lang_toggle": {
+          "type": "Button",
+          "text": "EN / اردو",
+          "text_color": "#1B5E20",
+          "border": "1px solid #1B5E20",
+          "border_radius": "20px",
+          "padding": "4px 10px"
+        }
+      }
+    },
+    "success_header": {
+      "type": "Container",
+      "padding": "32px 16px 16px 16px",
+      "align": "Center",
+      "children": {
+        "success_icon": {
+          "type": "Icon",
+          "value": "check_circle",
+          "color": "#388E3C",
+          "size": "64px"
+        },
+        "title_en": {
+          "type": "Text",
+          "value": "Booking Confirmed!",
+          "font_size": "24sp",
+          "weight": "Bold",
+          "color": "#1B5E20",
+          "margin_top": "12px"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "بکنگ کی تصدیق ہو گئی!",
+          "font_size": "20sp",
+          "weight": "Medium",
+          "color": "#757575",
+          "margin_top": "4px"
+        }
+      }
+    },
+    "booking_receipt_card": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "padding": "20px",
+      "margin": "16px",
+      "border": "1px solid #E0E0E0",
+      "children": {
+        "code_label_en": {
+          "type": "Text",
+          "value": "Confirmation Code",
+          "font_size": "13sp",
+          "color": "#757575"
+        },
+        "code_label_ur": {
+          "type": "Text",
+          "value": "تصدیقی کوڈ",
+          "font_size": "12sp",
+          "color": "#9E9E9E",
+          "margin_bottom": "4px"
+        },
+        "code": {
+          "type": "Text",
+          "value": "526377",
+          "font_size": "36sp",
+          "weight": "Heavy",
+          "color": "#FFC107",
+          "margin_bottom": "16px"
+        },
+        "provider_row": {
+          "type": "Row",
+          "align": "Center",
+          "margin_bottom": "12px",
+          "avatar": {
+            "type": "Avatar",
+            "size": "40px",
+            "text": "TM",
+            "background": "#C8E6C9"
+          },
+          "details": {
+            "name_en": "Tariq Mahmood",
+            "name_ur": "طارق محمود",
+            "role_en": "Plumber",
+            "role_ur": "پلمبر"
+          }
+        },
+        "service_row": {
+          "type": "Row",
+          "margin_bottom": "12px",
+          "icon": "schedule",
+          "text_en": "Today, 3:00 PM",
+          "text_ur": "آج، ٣ بجے"
+        },
+        "price_row": {
+          "type": "Row",
+          "margin_bottom": "12px",
+          "label_en": "Total Paid / Price",
+          "label_ur": "کل قیمت",
+          "value": "PKR 1,360",
+          "toggle_label_en": "Price breakdown",
+          "toggle_label_ur": "قیمت کی تفصیل"
+        },
+        "booking_id": {
+          "type": "Text",
+          "value": "ID: BK-2026-98B50E",
+          "font_size": "11sp",
+          "color": "#9E9E9E",
+          "margin_top": "12px"
+        }
+      }
+    },
+    "notification_preview": {
+      "type": "Container",
+      "margin": "16px",
+      "padding": "16px",
+      "background": "#ECE5DD",
+      "border_radius": "12px",
+      "tabs": ["English", "اردو"],
+      "message_bubble_en": "KhidmatAI: Your booking with Tariq Mahmood is confirmed for Today 3:00 PM. Code: 526377. Total: PKR 1,360.",
+      "message_bubble_ur": "خدمت اے آئی: طارق محمود کے ساتھ آپ کی بکنگ آج ٣ بجے کے لئے تصدیق ہو گئی ہے۔ کوڈ: 526377۔ کل قیمت: 1360 روپے"
+    },
+    "actions": {
+      "type": "Column",
+      "padding": "16px",
+      "gap": "12px",
+      "track_button": {
+        "type": "Button",
+        "background": "#1B5E20",
+        "border_radius": "12px",
+        "height": "48px",
+        "text_en": "Track Service",
+        "text_ur": "سروس ٹریک کریں",
+        "text_color": "#FFFFFF",
+        "weight": "Bold"
+      },
+      "agent_trace_button": {
+        "type": "Button",
+        "background": "transparent",
+        "border": "1.5px solid #1B5E20",
+        "border_radius": "12px",
+        "height": "48px",
+        "text_en": "View Agent Trace",
+        "text_ur": "ایجنٹ ٹریس",
+        "text_color": "#1B5E20",
+        "weight": "Bold"
+      }
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ"},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "primary": "#1B5E20",
+      "accent": "#FFC107",
+      "success": "#388E3C",
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "whatsapp_bg": "#ECE5DD"
+    },
+    "shapes": {
+      "border_radius": "12px"
+    }
+  }
+}

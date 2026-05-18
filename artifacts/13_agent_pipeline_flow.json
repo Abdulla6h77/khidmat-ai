@@ -1,0 +1,22 @@
+{
+  "task_name": "agent_pipeline_flow",
+  "timestamp": "2026-05-17T00:00:00Z",
+  "flow": [
+    {"step": 1, "agent": "intent_agent",
+     "input": "raw text", "output": "intent JSON"},
+    {"step": 2, "agent": "discovery_agent",
+     "input": "intent JSON", "output": "provider list"},
+    {"step": 3, "agent": "ranking_agent",
+     "input": "provider list", "output": "ranked list"},
+    {"step": 4, "agent": "pricing_agent",
+     "input": "top provider", "output": "price breakdown"},
+    {"step": 5, "agent": "booking_agent",
+     "input": "confirmed booking", "output": "receipt"},
+    {"step": 6, "agent": "notification_agent",
+     "input": "receipt", "output": "messages"},
+    {"step": 7, "agent": "followup_agent",
+     "input": "booking_id", "output": "status updates"},
+    {"step": 8, "agent": "dispute_agent",
+     "input": "dispute_type", "output": "resolution"}
+  ]
+}

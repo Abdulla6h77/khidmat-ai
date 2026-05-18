@@ -1,0 +1,11 @@
+{
+  "task_name": "llm_and_firebase_config",
+  "timestamp": "2026-05-17T00:00:00Z",
+  "llm_provider": "OpenRouter",
+  "model": "openai/gpt-4o-mini",
+  "base_url": "https://openrouter.ai/api/v1",
+  "firebase_project": "khidmat-ai-acb84",
+  "firebase_collections": [
+    "providers","bookings","notifications","disputes"
+  ]
+}

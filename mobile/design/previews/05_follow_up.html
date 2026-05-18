@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhidmatAI FollowUpScreen Preview</title>
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+  
+  :root {
+    --primary: #1B5E20;
+    --primary-gradient: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    --secondary: #2E7D32;
+    --accent: #FFC107;
+    --background: #F5F5F5;
+    --card: #FFFFFF;
+    --error: #D32F2F;
+    --success: #388E3C;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --divider: #E0E0E0;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    overflow-x: hidden;
+  }
+
+  /* Interactive Dashboard Shell */
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 320px;
+    padding: 32px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4CAF50;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sidebar-header p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .screens-menu {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .screens-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #b0bec5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .screens-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+
+  .screens-menu li.active a {
+    background: rgba(76, 175, 80, 0.15);
+    border-color: rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+    font-weight: 600;
+  }
+
+  .screens-menu-index {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .screens-menu li.active .screens-menu-index {
+    background: #4CAF50;
+    color: #121212;
+  }
+
+  .sidebar-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sidebar-footer-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .design-rules {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  /* Phone Mockup Frame */
+  .preview-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .phone-frame {
+    width: 375px;
+    height: 812px;
+    background: var(--background);
+    border-radius: 48px;
+    box-shadow: 0 0 0 12px #2b2b2b, 0 0 0 13px #3d3d3d, 0 20px 40px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+  }
+
+  /* Phone Notch & Speaker */
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 26px;
+    background: #2b2b2b;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone-speaker {
+    width: 40px;
+    height: 4px;
+    background: #111;
+    border-radius: 2px;
+    margin-bottom: 4px;
+  }
+
+  .phone-camera {
+    width: 8px;
+    height: 8px;
+    background: #111;
+    border-radius: 50%;
+    position: absolute;
+    right: 28px;
+    top: 8px;
+  }
+
+  /* Phone Status Bar */
+  .status-bar {
+    height: 38px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 24px 6px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #212121;
+    z-index: 999;
+    position: relative;
+  }
+
+  .status-bar.dark-text {
+    color: #212121;
+  }
+
+  .status-bar.light-text {
+    color: #FFFFFF;
+  }
+
+  .status-bar-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .status-bar-icon {
+    font-size: 10px;
+  }
+
+  /* Interactive State Controller Overlay */
+  .state-controller {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+  }
+
+  .state-controller h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+
+  .state-btn {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+  }
+
+  .state-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .state-btn.active {
+    background: #4CAF50;
+    color: #121212;
+    font-weight: 600;
+  }
+
+  /* App Native Components Base styling */
+  .app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: var(--background);
+    position: relative;
+    padding-bottom: 60px; /* Space for Bottom Navigation */
+  }
+
+  .app-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bilingual-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .bilingual-label .en {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .bilingual-label .ur {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    color: var(--text-secondary);
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Mode Selectors */
+  body.mode-en .bilingual-label .ur { display: none !important; }
+  body.mode-ur .bilingual-label .en { display: none !important; }
+  body.mode-ur .bilingual-label .ur { text-align: left; direction: ltr; } /* Align cleanly in single mode */
+
+  /* Common App Header */
+  .app-bar {
+    background: var(--card);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+
+  .app-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .back-btn {
+    font-size: 20px;
+    color: var(--primary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-bar-title .en {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .app-bar-title .ur {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .lang-toggle-btn {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-toggle-btn:hover {
+    background: rgba(27, 94, 32, 0.05);
+  }
+
+  /* Bottom Navigation Bar */
+  .app-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .app-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    gap: 4px;
+    flex: 1;
+    height: 100%;
+    transition: all 0.2s;
+  }
+
+  .app-nav-item i {
+    font-size: 18px;
+  }
+
+  .app-nav-item span {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .app-nav-item.active {
+    color: var(--primary);
+  }
+
+  .app-nav-item.active span {
+    font-weight: 700;
+  }
+
+  /* Material Icons Helper */
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+  
+  .material-icons {
+    font-family: 'Material Icons' !important;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+  }
+
+    
+    /* FollowUp screen CSS overrides */
+    .map-container {
+      height: 250px;
+      background: #E0F2F1;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--divider);
+    }
+    
+    /* Simulated map elements with animations */
+    .simulated-map {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .map-grid-line {
+      position: absolute;
+      background: rgba(0,0,0,0.04);
+    }
+    
+    .route-path {
+      position: absolute;
+      width: 150px;
+      height: 80px;
+      border: 4px solid var(--primary);
+      border-top: none;
+      border-right: none;
+      left: 100px;
+      top: 90px;
+      border-bottom-left-radius: 20px;
+      z-index: 1;
+    }
+    
+    .marker-customer {
+      position: absolute;
+      left: 90px;
+      top: 160px;
+      z-index: 5;
+      color: var(--accent);
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+    }
+    
+    .marker-provider {
+      position: absolute;
+      left: 235px;
+      top: 75px;
+      z-index: 5;
+      color: var(--primary);
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      transition: all 1.5s ease-in-out;
+    }
+    
+    .eta-floating-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      margin: -24px 16px 16px 16px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1px solid var(--divider);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .timeline-container {
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      margin: 16px;
+      padding: 16px;
+    }
+    
+    .step-item {
+      display: flex;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 24px;
+    }
+    
+    .step-item:last-child {
+      padding-bottom: 0;
+    }
+    
+    .step-item::after {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 24px;
+      bottom: 0;
+      width: 2px;
+      background: var(--divider);
+    }
+    
+    .step-item:last-child::after {
+      display: none;
+    }
+    
+    .step-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #eee;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      z-index: 2;
+    }
+    
+    .step-item.completed .step-icon {
+      background: var(--primary);
+      color: #fff;
+    }
+    
+    .step-item.completed::after {
+      background: var(--primary);
+    }
+    
+    .step-item.active .step-icon {
+      background: var(--accent);
+      color: #212121;
+      box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.2);
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .step-item.upcoming .step-title {
+      color: #9E9E9E;
+    }
+    
+    .step-subtext {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    
+    .simulation-panel {
+      background: #EEEEEE;
+      border-radius: 12px;
+      margin: 16px;
+      padding: 12px;
+      border: 1px dashed #BDBDBD;
+    }
+    
+    .sim-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+    }
+    
+    .sim-btn {
+      border: none;
+      background: #fff;
+      color: var(--text-primary);
+      border-radius: 6px;
+      padding: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+    
+    .sim-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+    
+    /* Star Rating feedback styling */
+    .modal-feedback {
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      margin: 16px 16px 80px 16px;
+      padding: 16px;
+      display: none;
+      animation: slideUp 0.3s ease-out;
+    }
+    
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    .stars-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    
+    .stars-row i {
+      font-size: 28px;
+      color: #eee;
+      cursor: pointer;
+      transition: color 0.1s;
+    }
+    
+    .stars-row i.selected {
+      color: var(--accent);
+    }
+    
+    .feedback-input {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      border: 1px solid var(--divider);
+      padding: 8px 12px;
+      font-size: 12px;
+      resize: none;
+      outline: none;
+      margin-bottom: 12px;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="material-icons">dashboard</i> KhidmatAI</h2>
+        <p>Bilingual AI-powered home service marketplace UI preview showcase.</p>
+        <ul class="screens-menu">
+          
+            <li class="">
+              <a href="01_home.html">
+                <span class="screens-menu-index">1</span>
+                <span>HomeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="02_providers.html">
+                <span class="screens-menu-index">2</span>
+                <span>ProvidersScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="03_detail.html">
+                <span class="screens-menu-index">3</span>
+                <span>ProviderDetailScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="04_booking_confirmation.html">
+                <span class="screens-menu-index">4</span>
+                <span>BookingConfirmationScreen</span>
+              </a>
+            </li>
+          
+            <li class="active">
+              <a href="05_follow_up.html">
+                <span class="screens-menu-index">5</span>
+                <span>FollowUpScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="06_agent_trace.html">
+                <span class="screens-menu-index">6</span>
+                <span>AgentTraceScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="07_dispute.html">
+                <span class="screens-menu-index">7</span>
+                <span>DisputeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="08_compare.html">
+                <span class="screens-menu-index">8</span>
+                <span>BaselineCompareScreen</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-title">Bilingual Design Rules</div>
+        <p class="design-rules">
+          1. Englishstacked on top, Urdu translation directly below.<br>
+          2. Language Toggle in Header simulates localized user contexts.<br>
+          3. Minimal, clean Careem-inspired geometry and soft gradients.
+        </p>
+      </div>
+    </div>
+  
+    
+    <div class="preview-area">
+      <!-- Phone Frame Mockup -->
+      <div class="phone-frame">
+        <div class="phone-notch">
+          <div class="phone-speaker"></div>
+        </div>
+        
+    <div class="status-bar dark-text">
+      <span>15:00</span>
+      <div class="status-bar-icons">
+        <i class="material-icons status-bar-icon">signal_cellular_4_bar</i>
+        <i class="material-icons status-bar-icon">wifi</i>
+        <i class="material-icons status-bar-icon">battery_full</i>
+      </div>
+    </div>
+  
+        
+        <div class="app-container">
+          <!-- AppBar -->
+          <div class="app-bar">
+            <div class="app-bar-left">
+              <button class="back-btn" onclick="location.href='04_booking_confirmation.html'"><i class="material-icons">arrow_back</i></button>
+              <div class="app-bar-title">
+                <span class="en">Service Tracking</span>
+                <span class="ur">سروس ٹریکنگ</span>
+              </div>
+            </div>
+            <button class="lang-toggle-btn">EN / اردو</button>
+          </div>
+          
+          <!-- Map Section -->
+          <div class="map-container">
+            <div class="simulated-map">
+              <!-- Grid background -->
+              <div class="map-grid-line" style="width:100%; height:1px; top:50px;"></div>
+              <div class="map-grid-line" style="width:100%; height:1px; top:100px;"></div>
+              <div class="map-grid-line" style="width:100%; height:1px; top:150px;"></div>
+              <div class="map-grid-line" style="width:1px; height:100%; left:100px;"></div>
+              <div class="map-grid-line" style="width:1px; height:100%; left:200px;"></div>
+              <div class="map-grid-line" style="width:1px; height:100%; left:300px;"></div>
+              
+              <!-- Draw path -->
+              <div class="route-path"></div>
+              
+              <!-- Markers -->
+              <i class="material-icons marker-customer">home</i>
+              <i class="material-icons marker-provider" id="providerMarker">directions_run</i>
+            </div>
+          </div>
+          
+          <!-- Provider Floating Card -->
+          <div class="eta-floating-card">
+            <div class="provider-avatar" style="width:40px; height:40px; font-size:14px;">TM</div>
+            <div style="flex:1;">
+              <div class="bilingual-label">
+                <span class="en" style="font-size:13px; font-weight:700;">Tariq Mahmood</span>
+                <span class="ur" style="font-size:11px;">طارق محمود</span>
+              </div>
+              <span style="font-size:10px; color:var(--accent); font-weight:700;">4.8 ⭐ Plumber</span>
+            </div>
+            <div style="text-align:right;" id="etaDisplay">
+              <div class="bilingual-label">
+                <span class="en" style="font-size:12px; font-weight:700; color:var(--success);" id="etaEn">Arriving in 12 mins</span>
+                <span class="ur" style="font-size:10px; color:var(--success);" id="etaUr">١٢ منٹ میں آمد</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stepper timeline -->
+          <div class="timeline-container">
+            <div class="step-item completed" id="step1">
+              <div class="step-icon"><i class="material-icons" style="font-size:12px;">check</i></div>
+              <div class="step-content">
+                <div class="step-title">
+                  <div class="bilingual-label">
+                    <span class="en">Booking Confirmed</span>
+                    <span class="ur">بکنگ کی تصدیق ہو گئی</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="step-item active" id="step2">
+              <div class="step-icon"><i class="material-icons" style="font-size:12px;">directions_run</i></div>
+              <div class="step-content">
+                <div class="step-title">
+                  <div class="bilingual-label">
+                    <span class="en" id="step2TitleEn">Provider En Route</span>
+                    <span class="ur" id="step2TitleUr">فراہم کنندہ راستے میں ہے</span>
+                  </div>
+                </div>
+                <div class="step-subtext" id="step2Sub">
+                  <div class="bilingual-label">
+                    <span class="en">Tariq is 1.2 km away</span>
+                    <span class="ur">طارق ١.٢ کلومیٹر دور ہے</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="step-item upcoming" id="step3">
+              <div class="step-icon"><i class="material-icons" style="font-size:12px;">location_on</i></div>
+              <div class="step-content">
+                <div class="step-title">
+                  <div class="bilingual-label">
+                    <span class="en">Arrived</span>
+                    <span class="ur">پہنچ گئے</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="step-item upcoming" id="step4">
+              <div class="step-icon"><i class="material-icons" style="font-size:12px;">handyman</i></div>
+              <div class="step-content">
+                <div class="step-title">
+                  <div class="bilingual-label">
+                    <span class="en">Work In Progress</span>
+                    <span class="ur">کام جاری ہے</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="step-item upcoming" id="step5">
+              <div class="step-icon"><i class="material-icons" style="font-size:12px;">task_alt</i></div>
+              <div class="step-content">
+                <div class="step-title">
+                  <div class="bilingual-label">
+                    <span class="en">Service Completed</span>
+                    <span class="ur">کام مکمل ہو گیا</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Test simulation panel -->
+          <div class="simulation-panel">
+            <span style="font-size:11px; font-weight:700; color:#666; text-transform:uppercase;">Demo Simulation Controls</span>
+            <div class="sim-buttons">
+              <button class="sim-btn active" onclick="simState('EN_ROUTE')">En Route</button>
+              <button class="sim-btn" onclick="simState('ARRIVED')">Arrived</button>
+              <button class="sim-btn" onclick="simState('IN_PROGRESS')">Working</button>
+              <button class="sim-btn" onclick="simState('COMPLETED')">Complete</button>
+            </div>
+          </div>
+          
+          <!-- Rate feedback card modal (revealed on completed status) -->
+          <div class="modal-feedback" id="feedbackModal">
+            <div class="section-subtitle" style="text-align:center;">
+              <div class="bilingual-label">
+                <span class="en">Rate Your Service</span>
+                <span class="ur">سروس کی درجہ بندی کریں</span>
+              </div>
+            </div>
+            <div class="stars-row" id="starsContainer">
+              <i class="material-icons" onclick="rateStar(1)">star</i>
+              <i class="material-icons" onclick="rateStar(2)">star</i>
+              <i class="material-icons" onclick="rateStar(3)">star</i>
+              <i class="material-icons" onclick="rateStar(4)">star</i>
+              <i class="material-icons" onclick="rateStar(5)">star</i>
+            </div>
+            <textarea class="feedback-input" placeholder="Write your review... / اپنا جائزہ لکھیں..."></textarea>
+            <button class="compare-btn" style="height:40px; font-size:13px;" onclick="location.href='07_dispute.html'">
+              <div class="bilingual-label" style="align-items: center; gap: 0;">
+                <span class="en" style="color:#fff;">Submit Feedback</span>
+                <span class="ur" style="color:#E8F5E9; font-size:10px;">جائزہ جمع کروائیں</span>
+              </div>
+            </button>
+          </div>
+          
+          <!-- Bottom Navigation -->
+          <div class="app-bottom-nav">
+            <a href="01_home.html" class="app-nav-item">
+              <i class="material-icons">home</i>
+              <span>ہوم / Home</span>
+            </a>
+            <a href="02_providers.html" class="app-nav-item">
+              <i class="material-icons">people</i>
+              <span>پلمبرز / Providers</span>
+            </a>
+            <a href="06_agent_trace.html" class="app-nav-item">
+              <i class="material-icons">analytics</i>
+              <span>ٹریس / AI Trace</span>
+            </a>
+            <a href="08_compare.html" class="app-nav-item">
+              <i class="material-icons">compare_arrows</i>
+              <span>موازنہ / Compare</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  function toggleLanguage() {
+    const currentMode = document.body.className;
+    if (currentMode === '') {
+      document.body.className = 'mode-en';
+      updateLangBtnText('ENGLISH');
+    } else if (currentMode === 'mode-en') {
+      document.body.className = 'mode-ur';
+      updateLangBtnText('اردو');
+    } else {
+      document.body.className = '';
+      updateLangBtnText('EN / اردو');
+    }
+  }
+
+  function updateLangBtnText(text) {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => btn.innerText = text);
+  }
+
+  // Inject language click event automatically
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', toggleLanguage);
+    });
+  });
+
+    
+    // Star Rating
+    let rating = 0;
+    function rateStar(num) {
+      rating = num;
+      const stars = document.querySelectorAll('#starsContainer i');
+      stars.forEach((star, index) => {
+        if (index < num) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+    }
+    
+    // Status Simulator
+    function simState(state) {
+      // Clear active sim btn styling
+      const btns = document.querySelectorAll('.sim-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      
+      const marker = document.getElementById('providerMarker');
+      const etaEn = document.getElementById('etaEn');
+      const etaUr = document.getElementById('etaUr');
+      const feedbackModal = document.getElementById('feedbackModal');
+      
+      // Default classes resetting
+      document.getElementById('step2').className = 'step-item upcoming';
+      document.getElementById('step3').className = 'step-item upcoming';
+      document.getElementById('step4').className = 'step-item upcoming';
+      document.getElementById('step5').className = 'step-item upcoming';
+      feedbackModal.style.display = 'none';
+      
+      if (state === 'EN_ROUTE') {
+        event.target.classList.add('active');
+        document.getElementById('step2').className = 'step-item active';
+        marker.style.left = '235px';
+        marker.style.top = '75px';
+        marker.innerText = 'directions_run';
+        etaEn.innerText = 'Arriving in 12 mins';
+        etaUr.innerText = '١٢ منٹ میں آمد';
+      } 
+      else if (state === 'ARRIVED') {
+        event.target.classList.add('active');
+        document.getElementById('step2').className = 'step-item completed';
+        document.getElementById('step3').className = 'step-item active';
+        marker.style.left = '100px';
+        marker.style.top = '145px';
+        marker.innerText = 'handyman';
+        etaEn.innerText = 'Tariq Mahmood Arrived';
+        etaUr.innerText = 'پہنچ گئے ہیں';
+      } 
+      else if (state === 'IN_PROGRESS') {
+        event.target.classList.add('active');
+        document.getElementById('step2').className = 'step-item completed';
+        document.getElementById('step3').className = 'step-item completed';
+        document.getElementById('step4').className = 'step-item active';
+        marker.style.left = '90px';
+        marker.style.top = '160px';
+        marker.innerText = 'handyman';
+        etaEn.innerText = 'Job In Progress';
+        etaUr.innerText = 'کام جاری ہے';
+      } 
+      else if (state === 'COMPLETED') {
+        event.target.classList.add('active');
+        document.getElementById('step2').className = 'step-item completed';
+        document.getElementById('step3').className = 'step-item completed';
+        document.getElementById('step4').className = 'step-item completed';
+        document.getElementById('step5').className = 'step-item completed';
+        marker.style.left = '90px';
+        marker.style.top = '160px';
+        marker.innerText = 'task_alt';
+        etaEn.innerText = 'Service Done successfully';
+        etaUr.innerText = 'کام مکمل ہو گیا ہے';
+        feedbackModal.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

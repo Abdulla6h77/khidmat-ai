@@ -1,0 +1,25 @@
+{
+  "task_name": "baseline_compare_screen_design",
+  "timestamp": "2026-05-17T20:42:15+05:00",
+  "screen": "BaselineCompareScreen",
+  "key_components": [
+    "Header: Why KhidmatAI? / کیوں خدمت اے آئی؟",
+    "Two column comparison table",
+    "Simple App column grey with crosses",
+    "KhidmatAI column green with checkmarks",
+    "7 feature comparison rows",
+    "Live demo input box at bottom",
+    "Side by side response comparison"
+  ],
+  "comparison_rows": [
+    "Urdu Input",
+    "7 Factor Matching",
+    "Slot Suggestions",
+    "Price Breakdown",
+    "Agent Reasoning",
+    "Dispute Handling",
+    "Confidence Score"
+  ],
+  "importance": "Critical for judges - shows agentic advantage over simple systems",
+  "outcome": "Baseline comparison screen design complete with live demo section"
+}

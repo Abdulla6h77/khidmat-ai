@@ -1,0 +1,207 @@
+{
+  "screen_name": "ProviderDetailScreen",
+  "screen_index": 3,
+  "stitch_screen_id": "ce8c1a88b17649bca37b6d1c023530c8",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopAppBar (Sticky Header)",
+      "ProfileHeader (Avatar, Rating, Name)",
+      "ServiceTags (Bilingual Chips)",
+      "StatsGrid (2x2 Quick stats)",
+      "AvailabilitySlots (Horizontal Scroll Chips)",
+      "PriceBreakdownCard (Accordion Style Card)",
+      "AgentReasoningCard (Light purple card)",
+      "StickyBookingFooter (Sticky Button)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_app_bar": {
+      "type": "Container",
+      "background": "#FFFFFF",
+      "border_bottom": "1px solid #E0E0E0",
+      "padding": "16px 20px",
+      "children": {
+        "back_button": {
+          "type": "IconButton",
+          "icon": "arrow_back",
+          "color": "#1B5E20"
+        },
+        "title_en": {
+          "type": "Text",
+          "value": "Provider Profile",
+          "color": "#212121",
+          "font_size": "18sp",
+          "weight": "Bold"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "پروفائل فراہم کنندہ",
+          "color": "#757575",
+          "font_size": "15sp",
+          "weight": "Medium"
+        },
+        "lang_toggle": {
+          "type": "Button",
+          "text": "EN / اردو",
+          "text_color": "#1B5E20",
+          "border": "1px solid #1B5E20",
+          "border_radius": "20px",
+          "padding": "4px 10px"
+        }
+      }
+    },
+    "profile_header": {
+      "type": "Container",
+      "padding": "24px 16px 16px 16px",
+      "background": "#FFFFFF",
+      "layout": "Column",
+      "align": "Center",
+      "children": {
+        "avatar": {
+          "type": "Avatar",
+          "size": "72px",
+          "background": "#C8E6C9",
+          "text": "TM",
+          "text_color": "#1B5E20",
+          "font_size": "24sp"
+        },
+        "name": {
+          "type": "Text",
+          "value": "Tariq Mahmood",
+          "font_size": "22sp",
+          "weight": "Bold",
+          "margin_top": "12px"
+        },
+        "name_ur": {
+          "type": "Text",
+          "value": "طارق محمود",
+          "font_size": "18sp",
+          "weight": "Medium",
+          "color": "#757575",
+          "margin_top": "2px"
+        }
+      }
+    },
+    "service_tags": {
+      "type": "Row",
+      "padding": "0px 16px 16px 16px",
+      "background": "#FFFFFF",
+      "justify": "Center",
+      "gap": "8px",
+      "chips": [
+        {"icon": "🔧", "label_en": "Plumber", "label_ur": "پلمبر"},
+        {"icon": "⚡", "label_en": "Leakage Specialist", "label_ur": "رساو کے ماہر"}
+      ]
+    },
+    "stats_grid": {
+      "type": "GridView",
+      "columns": 2,
+      "padding": "16px",
+      "gap": "12px",
+      "items": [
+        {"value": "4.8", "label_en": "Rating", "label_ur": "درجہ بندی"},
+        {"value": "120", "label_en": "Reviews", "label_ur": "جائزے"},
+        {"value": "98%", "label_en": "On-Time", "label_ur": "وقت پرآمد"},
+        {"value": "1.2%", "label_en": "Cancel", "label_ur": "منسوخی"}
+      ]
+    },
+    "availability_slots": {
+      "type": "Container",
+      "padding": "16px",
+      "title_en": "Select Availability Slot",
+      "title_ur": "دستیاب وقت کا انتخاب کریں",
+      "slots": [
+        {"time": "1 PM", "selected": false},
+        {"time": "2 PM", "selected": false},
+        {"time": "3 PM", "selected": true},
+        {"time": "4 PM", "selected": false},
+        {"time": "5 PM", "selected": false}
+      ]
+    },
+    "price_breakdown_card": {
+      "type": "Card",
+      "background": "#FFFFFF",
+      "border_radius": "12px",
+      "padding": "16px",
+      "border": "1px solid #E0E0E0",
+      "title_en": "Price Breakdown",
+      "title_ur": "قیمت کی تفصیل",
+      "rows": [
+        {"name_en": "Base Service", "name_ur": "بنیادی سروس", "value": "PKR 1,300"},
+        {"name_en": "Distance Fee", "name_ur": "فاصلہ چارجز", "value": "+ PKR 60"},
+        {"name_en": "Urgency Multiplier", "name_ur": "جلدی گتانک", "value": "x 1.0"},
+        {"name_en": "Complexity Multiplier", "name_ur": "پیچیدگی گتانک", "value": "x 1.0"}
+      ],
+      "total": {
+        "name_en": "Total Price",
+        "name_ur": "کل قیمت",
+        "value": "PKR 1,360",
+        "color": "#FFC107"
+      }
+    },
+    "agent_reasoning_card": {
+      "type": "Card",
+      "background": "#F3E5F5",
+      "border_radius": "12px",
+      "padding": "16px",
+      "border": "1px solid #E1BEE7",
+      "title_en": "AI Agent Matching Reasoning",
+      "title_ur": "اے آئی ایجنٹ کے انتخاب کی وجہ",
+      "reasoning_en": "Tariq is chosen because of 1.2km distance, highest rating 4.8, and 3 PM availability match.",
+      "reasoning_ur": "طارق کا انتخاب اس لیے کیا گیا کیونکہ فاصلہ کم ہے، سب سے زیادہ درجہ بندی ہے، اور ٣ بجے دستیاب ہے۔"
+    },
+    "book_now_button": {
+      "type": "Button",
+      "background": "#1B5E20",
+      "border_radius": "12px",
+      "height": "48px",
+      "margin": "16px",
+      "text_english": "Book Now",
+      "text_urdu": "ابھی بک کریں",
+      "text_color": "#FFFFFF",
+      "font_size": "16sp",
+      "weight": "Bold"
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ", "selected": true},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس"},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "primary": "#1B5E20",
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "text_main": "#212121",
+      "text_muted": "#757575",
+      "accent": "#FFC107",
+      "reasoning_bg": "#F3E5F5",
+      "reasoning_border": "#E1BEE7"
+    },
+    "typography": {
+      "font_family_en": "Inter, Roboto",
+      "font_family_ur": "Jameel Noori Nastaleeq",
+      "h2_size_en": "18sp",
+      "h2_size_ur": "15sp",
+      "body_size_en": "14sp",
+      "body_size_ur": "13sp"
+    },
+    "spacing": {
+      "screen_padding": "16px",
+      "card_padding": "16px",
+      "gap": "12px"
+    }
+  }
+}

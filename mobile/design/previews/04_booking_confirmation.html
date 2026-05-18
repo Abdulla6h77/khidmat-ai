@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhidmatAI BookingConfirmationScreen Preview</title>
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+  
+  :root {
+    --primary: #1B5E20;
+    --primary-gradient: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+    --secondary: #2E7D32;
+    --accent: #FFC107;
+    --background: #F5F5F5;
+    --card: #FFFFFF;
+    --error: #D32F2F;
+    --success: #388E3C;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --divider: #E0E0E0;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+    overflow-x: hidden;
+  }
+
+  /* Interactive Dashboard Shell */
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 320px;
+    padding: 32px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #4CAF50;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sidebar-header p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .screens-menu {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .screens-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #b0bec5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .screens-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+
+  .screens-menu li.active a {
+    background: rgba(76, 175, 80, 0.15);
+    border-color: rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+    font-weight: 600;
+  }
+
+  .screens-menu-index {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .screens-menu li.active .screens-menu-index {
+    background: #4CAF50;
+    color: #121212;
+  }
+
+  .sidebar-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sidebar-footer-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .design-rules {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  /* Phone Mockup Frame */
+  .preview-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .phone-frame {
+    width: 375px;
+    height: 812px;
+    background: var(--background);
+    border-radius: 48px;
+    box-shadow: 0 0 0 12px #2b2b2b, 0 0 0 13px #3d3d3d, 0 20px 40px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+  }
+
+  /* Phone Notch & Speaker */
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 26px;
+    background: #2b2b2b;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone-speaker {
+    width: 40px;
+    height: 4px;
+    background: #111;
+    border-radius: 2px;
+    margin-bottom: 4px;
+  }
+
+  .phone-camera {
+    width: 8px;
+    height: 8px;
+    background: #111;
+    border-radius: 50%;
+    position: absolute;
+    right: 28px;
+    top: 8px;
+  }
+
+  /* Phone Status Bar */
+  .status-bar {
+    height: 38px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 24px 6px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #212121;
+    z-index: 999;
+    position: relative;
+  }
+
+  .status-bar.dark-text {
+    color: #212121;
+  }
+
+  .status-bar.light-text {
+    color: #FFFFFF;
+  }
+
+  .status-bar-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .status-bar-icon {
+    font-size: 10px;
+  }
+
+  /* Interactive State Controller Overlay */
+  .state-controller {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+  }
+
+  .state-controller h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+
+  .state-btn {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+  }
+
+  .state-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .state-btn.active {
+    background: #4CAF50;
+    color: #121212;
+    font-weight: 600;
+  }
+
+  /* App Native Components Base styling */
+  .app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: var(--background);
+    position: relative;
+    padding-bottom: 60px; /* Space for Bottom Navigation */
+  }
+
+  .app-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bilingual-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .bilingual-label .en {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .bilingual-label .ur {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    color: var(--text-secondary);
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Mode Selectors */
+  body.mode-en .bilingual-label .ur { display: none !important; }
+  body.mode-ur .bilingual-label .en { display: none !important; }
+  body.mode-ur .bilingual-label .ur { text-align: left; direction: ltr; } /* Align cleanly in single mode */
+
+  /* Common App Header */
+  .app-bar {
+    background: var(--card);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+
+  .app-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .back-btn {
+    font-size: 20px;
+    color: var(--primary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-bar-title .en {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .app-bar-title .ur {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .lang-toggle-btn {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-toggle-btn:hover {
+    background: rgba(27, 94, 32, 0.05);
+  }
+
+  /* Bottom Navigation Bar */
+  .app-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .app-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    gap: 4px;
+    flex: 1;
+    height: 100%;
+    transition: all 0.2s;
+  }
+
+  .app-nav-item i {
+    font-size: 18px;
+  }
+
+  .app-nav-item span {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .app-nav-item.active {
+    color: var(--primary);
+  }
+
+  .app-nav-item.active span {
+    font-weight: 700;
+  }
+
+  /* Material Icons Helper */
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+  
+  .material-icons {
+    font-family: 'Material Icons' !important;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+  }
+
+    
+    /* Confirmation screen CSS */
+    .success-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 16px 16px;
+    }
+    
+    .checkmark-container {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #E8F5E9;
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pop 0.4s ease-out;
+    }
+    
+    .checkmark-container i {
+      font-size: 48px;
+    }
+    
+    @keyframes pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .confirm-title-en {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 12px;
+    }
+    .confirm-title-ur {
+      font-family: 'Noto Sans Arabic', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    
+    .receipt-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--divider);
+      margin: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    
+    .code-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    
+    .receipt-code {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 6px 0 16px 0;
+      letter-spacing: 1px;
+    }
+    
+    .receipt-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--divider);
+    }
+    
+    .receipt-row i {
+      color: var(--text-secondary);
+      font-size: 20px;
+    }
+    
+    .whatsapp-container {
+      background: #ECE5DD;
+      border-radius: 12px;
+      margin: 16px;
+      padding: 16px;
+      border: 1px solid #E0D4C5;
+      position: relative;
+    }
+    
+    .whatsapp-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #075E54;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    
+    .whatsapp-bubble {
+      background: #DCF8C6;
+      border-radius: 12px;
+      border-top-left-radius: 0;
+      padding: 10px 12px;
+      color: #303030;
+      font-size: 12px;
+      line-height: 1.4;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .double-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      margin-bottom: 80px;
+    }
+    
+    .track-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      height: 48px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(27,94,32,0.2);
+    }
+    
+    .trace-btn {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      height: 48px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="material-icons">dashboard</i> KhidmatAI</h2>
+        <p>Bilingual AI-powered home service marketplace UI preview showcase.</p>
+        <ul class="screens-menu">
+          
+            <li class="">
+              <a href="01_home.html">
+                <span class="screens-menu-index">1</span>
+                <span>HomeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="02_providers.html">
+                <span class="screens-menu-index">2</span>
+                <span>ProvidersScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="03_detail.html">
+                <span class="screens-menu-index">3</span>
+                <span>ProviderDetailScreen</span>
+              </a>
+            </li>
+          
+            <li class="active">
+              <a href="04_booking_confirmation.html">
+                <span class="screens-menu-index">4</span>
+                <span>BookingConfirmationScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="05_follow_up.html">
+                <span class="screens-menu-index">5</span>
+                <span>FollowUpScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="06_agent_trace.html">
+                <span class="screens-menu-index">6</span>
+                <span>AgentTraceScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="07_dispute.html">
+                <span class="screens-menu-index">7</span>
+                <span>DisputeScreen</span>
+              </a>
+            </li>
+          
+            <li class="">
+              <a href="08_compare.html">
+                <span class="screens-menu-index">8</span>
+                <span>BaselineCompareScreen</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-title">Bilingual Design Rules</div>
+        <p class="design-rules">
+          1. Englishstacked on top, Urdu translation directly below.<br>
+          2. Language Toggle in Header simulates localized user contexts.<br>
+          3. Minimal, clean Careem-inspired geometry and soft gradients.
+        </p>
+      </div>
+    </div>
+  
+    
+    <div class="preview-area">
+      <!-- Phone Frame Mockup -->
+      <div class="phone-frame">
+        <div class="phone-notch">
+          <div class="phone-speaker"></div>
+        </div>
+        
+    <div class="status-bar dark-text">
+      <span>15:00</span>
+      <div class="status-bar-icons">
+        <i class="material-icons status-bar-icon">signal_cellular_4_bar</i>
+        <i class="material-icons status-bar-icon">wifi</i>
+        <i class="material-icons status-bar-icon">battery_full</i>
+      </div>
+    </div>
+  
+        
+        <div class="app-container">
+          <!-- AppBar -->
+          <div class="app-bar">
+            <div class="app-bar-left">
+              <button class="back-btn" onclick="location.href='03_detail.html'"><i class="material-icons">arrow_back</i></button>
+              <div class="app-bar-title">
+                <span class="en">Booking Confirmed</span>
+                <span class="ur">بکنگ کی تصدیق ہو گئی</span>
+              </div>
+            </div>
+            <button class="lang-toggle-btn">EN / اردو</button>
+          </div>
+          
+          <!-- Success Hero Header -->
+          <div class="success-hero">
+            <div class="checkmark-container">
+              <i class="material-icons">check_circle</i>
+            </div>
+            <div class="confirm-title-en">Booking Confirmed!</div>
+            <div class="confirm-title-ur">بکنگ کی تصدیق ہو گئی!</div>
+          </div>
+          
+          <!-- Booking Receipt Card -->
+          <div class="receipt-card">
+            <div class="code-title">
+              <div class="bilingual-label">
+                <span class="en">Confirmation Code</span>
+                <span class="ur">تصدیقی کوڈ</span>
+              </div>
+            </div>
+            <div class="receipt-code">526377</div>
+            
+            <div class="receipt-row">
+              <div class="provider-avatar" style="width:36px; height:36px; font-size:13px;">TM</div>
+              <div style="flex:1;">
+                <div class="bilingual-label">
+                  <span class="en" style="font-size:13px; font-weight:700;">Tariq Mahmood (Plumber)</span>
+                  <span class="ur" style="font-size:11px;">طارق محمود (پلمبر)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="receipt-row">
+              <i class="material-icons">schedule</i>
+              <div class="bilingual-label">
+                <span class="en" style="font-size:13px; font-weight:700;">Today, 3:00 PM</span>
+                <span class="ur" style="font-size:11px;">آج، ٣ بجے</span>
+              </div>
+            </div>
+            
+            <div class="receipt-row">
+              <i class="material-icons">payment</i>
+              <div class="bilingual-label">
+                <span class="en" style="font-size:13px; font-weight:700;">Paid Total: PKR 1,360</span>
+                <span class="ur" style="font-size:11px;">کل رقم: ١،٣٦٠ روپے</span>
+              </div>
+            </div>
+            
+            <div style="font-size:10px; color:#9E9E9E; margin-top:12px; font-weight:700;">
+              ID: BK-2026-98B50E
+            </div>
+          </div>
+          
+          <!-- WhatsApp Notification bubble preview -->
+          <div class="whatsapp-container">
+            <div class="whatsapp-title">
+              <i class="material-icons" style="font-size:14px;">chat</i>
+              <span>WhatsApp Notification Opt-in</span>
+            </div>
+            <div class="whatsapp-bubble">
+              <div class="bilingual-label">
+                <span class="en"><strong>KhidmatAI:</strong> Your booking with Tariq Mahmood is confirmed for Today 3:00 PM. Code: 526377. Total: PKR 1,360.</span>
+                <span class="ur"><strong>خدمت اے آئی:</strong> طارق محمود کے ساتھ آپ کی بکنگ آج ٣ بجے کے لئے تصدیق ہو گئی ہے۔ کوڈ: 526377۔ کل قیمت: 1360 روپے</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Buttons -->
+          <div class="double-buttons">
+            <button class="track-btn" onclick="location.href='05_follow_up.html'">
+              <div class="bilingual-label" style="align-items: center; gap: 0;">
+                <span class="en" style="color:#fff;">Track Service</span>
+                <span class="ur" style="color:#E8F5E9; font-size:12px;">سروس ٹریک کریں</span>
+              </div>
+            </button>
+            <button class="trace-btn" onclick="location.href='06_agent_trace.html'">
+              <div class="bilingual-label" style="align-items: center; gap: 0;">
+                <span class="en" style="color:var(--primary);">View Agent Trace</span>
+                <span class="ur" style="color:var(--secondary); font-size:12px;">ایجنٹ ٹریس دیکھیں</span>
+              </div>
+            </button>
+          </div>
+          
+          <!-- Bottom Navigation -->
+          <div class="app-bottom-nav">
+            <a href="01_home.html" class="app-nav-item">
+              <i class="material-icons">home</i>
+              <span>ہوم / Home</span>
+            </a>
+            <a href="02_providers.html" class="app-nav-item">
+              <i class="material-icons">people</i>
+              <span>پلمبرز / Providers</span>
+            </a>
+            <a href="06_agent_trace.html" class="app-nav-item">
+              <i class="material-icons">analytics</i>
+              <span>ٹریس / AI Trace</span>
+            </a>
+            <a href="08_compare.html" class="app-nav-item">
+              <i class="material-icons">compare_arrows</i>
+              <span>موازنہ / Compare</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  function toggleLanguage() {
+    const currentMode = document.body.className;
+    if (currentMode === '') {
+      document.body.className = 'mode-en';
+      updateLangBtnText('ENGLISH');
+    } else if (currentMode === 'mode-en') {
+      document.body.className = 'mode-ur';
+      updateLangBtnText('اردو');
+    } else {
+      document.body.className = '';
+      updateLangBtnText('EN / اردو');
+    }
+  }
+
+  function updateLangBtnText(text) {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => btn.innerText = text);
+  }
+
+  // Inject language click event automatically
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.lang-toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', toggleLanguage);
+    });
+  });
+
+  </script>
+</body>
+</html>

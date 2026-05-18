@@ -1,0 +1,25 @@
+{
+  "task_name": "notifications_cleanup",
+  "timestamp": "2026-05-17T12:05:57Z",
+  "workplan": "Fix clear_test_documents to handle notifications collection with different field names",
+  "decisions_made": [
+    "Notifications use recipient_id not user_id",
+    "Cleanup targets recipient_id == anonymous and demo_user_001",
+    "Also targets old booking_id prefixes from test runs",
+    "Bookings collection was successfully cleared",
+    "Notifications collection required separate fix"
+  ],
+  "tools_called": [
+    "backend/firebase_client.py",
+    "Firebase notifications collection"
+  ],
+  "files_created": [
+    "backend/firebase_client.py (modified)"
+  ],
+  "errors_encountered": [
+    "clear_test_documents used user_id field which does not exist in notifications",
+    "notifications collection uses recipient_id field instead",
+    "Script ran without error but deleted nothing from notifications"
+  ],
+  "outcome": "Cleanup function fixed for notifications. Test documents removed from both collections."
+}

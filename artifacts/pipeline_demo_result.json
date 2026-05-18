@@ -1,0 +1,181 @@
+{
+  "status": "SUCCESS",
+  "booking_id": "BK2026051710151566D0",
+  "pipeline_result": {
+    "intent": {
+      "service_type": "AC_REPAIR",
+      "location": "DHA Lahore",
+      "urgency": "URGENT",
+      "budget_range": {
+        "min": 2000,
+        "max": 5000
+      },
+      "description": "The user needs urgent AC repair services as their AC is not cooling at all.",
+      "raw_input": "My AC is not cooling at all, I need someone urgently in DHA Lahore. Budget around 2000-5000 rupees."
+    },
+    "discovery": {
+      "matched_providers": [
+        {
+          "provider_id": "P003",
+          "name": "Bilal Ahmad",
+          "service_type": "AC technician",
+          "location": "DHA",
+          "rating": 4.9,
+          "reviews_count": 210,
+          "base_price": 2000,
+          "phone": "N/A",
+          "availability": "9AM, 11AM, 5PM",
+          "match_score": 1.0,
+          "match_reason": "Matches service type (AC technician), located in DHA, within budget, high rating and many reviews."
+        }
+      ],
+      "total_found": 1,
+      "search_summary": "Found one suitable provider in DHA Lahore for urgent AC repair services within the specified budget."
+    },
+    "ranking": {
+      "ranked_providers": [
+        {
+          "rank": 1,
+          "provider_id": "P003",
+          "name": "Bilal Ahmad",
+          "service_type": "AC technician",
+          "location": "DHA",
+          "rating": 4.9,
+          "reviews_count": 210,
+          "base_price": 2000,
+          "phone": "N/A",
+          "availability": "9AM, 11AM, 5PM",
+          "overall_score": 9.56,
+          "ranking_breakdown": {
+            "rating_score": 9.76,
+            "review_score": 8.4,
+            "price_score": 10.0,
+            "availability_score": 6.0
+          },
+          "recommendation": "Bilal Ahmad is the top choice due to his high rating, ample positive reviews, and alignment with the user's budget."
+        }
+      ],
+      "top_recommendation": "P003",
+      "ranking_summary": "Providers were ranked primarily by rating, followed by reviews count, price match within budget, and availability."
+    },
+    "pricing": {
+      "estimated_price": {
+        "min": 2400,
+        "max": 5200,
+        "recommended": 4000
+      },
+      "price_breakdown": {
+        "base_service_fee": 2000,
+        "urgency_premium": 400,
+        "parts_estimate": 0,
+        "platform_fee": 600
+      },
+      "provider_base_price": 2000,
+      "budget_match": "SLIGHTLY_OVER",
+      "negotiation_tip": "Consider discussing the urgency and potential need for parts to see if the provider can offer a discount.",
+      "price_transparency": "The base price for urgent AC repair is PKR 2000. Due to the urgency of the request, a 20% premium (PKR 400) is added. A platform fee of PKR 600 is included to cover service costs, leading to a total price range of PKR 2400 to PKR 5200."
+    },
+    "booking": {
+      "booking_id": "BK2026051710151566D0",
+      "firestore_saved": true,
+      "booking_data": {
+        "booking_id": "BK2026051710151566D0",
+        "user_id": "demo_user_001",
+        "provider_id": "P003",
+        "provider_name": "Bilal Ahmad",
+        "service_type": "AC_REPAIR",
+        "location": "DHA Lahore",
+        "urgency": "URGENT",
+        "description": "The user needs urgent AC repair services as their AC is not cooling at all.",
+        "estimated_price": 4000,
+        "price_breakdown": {
+          "base_service_fee": 2000,
+          "urgency_premium": 400,
+          "parts_estimate": 0,
+          "platform_fee": 600
+        },
+        "status": "CONFIRMED",
+        "created_at": "2026-05-17T10:15:15.002191+00:00"
+      },
+      "confirmation": {
+        "confirmation_message": "Thank you for choosing KhidmatAI! Your urgent AC repair service has been successfully booked with Bilal Ahmad. Our technician will arrive at your location in DHA Lahore within 2-4 hours. We understand the importance of quick service, especially during this time. If you have any questions, feel free to reach out.",
+        "urdu_message": "KhidmatAI ka shukriya! Aapka urgent AC repair service Bilal Ahmad ke sath dakhil kar diya gaya hai. Hamara technician aapke maqam DHA Lahore par 2-4 ghante ke andar aayega. Hum samajhte hain ke is waqt jaldi service kitni ahem hai. Agar aap ko koi sawaal hai, toh bejhijhak humse raabta karein.",
+        "scheduled_time": "Within 2-4 hours",
+        "estimated_arrival": "Approximately between 2 PM and 4 PM",
+        "provider_contact": "N/A",
+        "booking_instructions": [
+          "Please ensure that someone is available at the location during the scheduled time.",
+          "Prepare any necessary details about the AC issue for the technician.",
+          "Feel free to reach out to us if you need any assistance."
+        ],
+        "cancellation_policy": "You can cancel the booking for a full refund up to 1 hour before the scheduled service.",
+        "status": "CONFIRMED"
+      }
+    },
+    "notifications": {
+      "notifications": {
+        "user_notification": {
+          "type": "BOOKING_CONFIRMED",
+          "title": "Your AC Repair Appointment is Confirmed!",
+          "body": "Dear Customer, your AC repair service is confirmed with Bilal Ahmad. He will arrive at your location in DHA Lahore between 2 PM and 4 PM. Thank you for choosing KhidmatAI!",
+          "sms_text": "AC repair confirmed with Bilal Ahmad in DHA Lahore, ETA 2-4 PM.",
+          "channel": "push"
+        },
+        "provider_notification": {
+          "type": "NEW_JOB_ASSIGNED",
+          "title": "New Job Assigned: AC Repair",
+          "body": "Bilal Ahmad, you have a new job for AC repair in DHA Lahore. Please contact the customer at demo_user_001. Ensure to arrive between 2 PM and 4 PM.",
+          "sms_text": "New job for AC repair in DHA Lahore. Contact demo_user_001. Arrive 2-4 PM.",
+          "channel": "push"
+        },
+        "notifications_count": 2,
+        "sent_at": "2023-10-06T12:00:00Z"
+      },
+      "send_status": [
+        {
+          "recipient": "user_notification",
+          "status": "SAVED_TO_FIRESTORE"
+        },
+        {
+          "recipient": "provider_notification",
+          "status": "SAVED_TO_FIRESTORE"
+        }
+      ],
+      "booking_id": "BK2026051710151566D0"
+    },
+    "followup": {
+      "booking_id": "BK2026051710151566D0",
+      "followup": {
+        "followup_message": {
+          "type": "SERVICE_FOLLOWUP",
+          "title": "ہماری سروس کے بارے میں آپ کی رائے!",
+          "body": "السلام علیکم! ہمیں امید ہے کہ Bilal Ahmad نے آپ کے AC کی مرمت اچھی طرح کی ہوگی۔ کیا آپ کو سروس سے مطمئن ہوں؟ مہربانی فرما کر 1 سے 5 ستاروں میں اپنا ریٹ دیں۔ اگر آپ کے پاس کوئی فیڈبیک یا مسئلہ ہو تو براہ کرم ہمیں بتائیں، ہم آپ کی مدد کرنے کے لیے حاضر ہیں!",
+          "sms_text": "AC repair service complete! Please rate us 1-5 stars & share any feedback.",
+          "rating_prompt": "مہربانی فرما کر 1 سے 5 تک ستارے دیں!",
+          "feedback_prompt": "آپ کے خیال میں ہم کس طرح مزید بہتری لا سکتے ہیں؟"
+        },
+        "followup_scheduled": "Immediately after completion",
+        "reminder_scheduled": "2023-10-27T12:00:00+05:00",
+        "quality_checklist": [
+          "کیا آپ کی مسئلہ فوری طور پر حل ہوا؟",
+          "کیا تکنیشن کی سروس کے معیار سے آپ مطمئن ہیں؟",
+          "کیا آپ کو کسی قسم کی چالاکی یا گڑبڑ محسوس ہوئی؟"
+        ],
+        "escalation_trigger": "اگر کسٹمر نے 2 ستاروں سے کم ریٹنگ دی یا سروس میں سنجیدہ مسائل بتائے"
+      },
+      "booking_status_updated": false,
+      "service_status": "CONFIRMED"
+    }
+  },
+  "errors": [],
+  "pipeline_start": "2026-05-17T10:14:55.256074+00:00",
+  "pipeline_end": "2026-05-17T10:15:29.204167+00:00",
+  "summary": {
+    "service": "AC_REPAIR",
+    "location": "DHA Lahore",
+    "provider": "Bilal Ahmad",
+    "price_pkr": 4000,
+    "booking_id": "BK2026051710151566D0",
+    "confirmation": "Thank you for choosing KhidmatAI! Your urgent AC repair service has been successfully booked with Bilal Ahmad. Our technician will arrive at your location in DHA Lahore within 2-4 hours. We understand the importance of quick service, especially during this time. If you have any questions, feel free to reach out."
+  }
+}

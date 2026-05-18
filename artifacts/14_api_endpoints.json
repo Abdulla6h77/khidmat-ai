@@ -1,0 +1,20 @@
+{
+  "task_name": "api_endpoints",
+  "timestamp": "2026-05-17T00:00:00Z",
+  "endpoints": [
+    {"method": "POST", "path": "/api/request",
+     "agents_used": ["intent","discovery","ranking","pricing"]},
+    {"method": "POST", "path": "/api/book",
+     "agents_used": ["booking","notification"]},
+    {"method": "POST", "path": "/api/followup",
+     "agents_used": ["followup"]},
+    {"method": "POST", "path": "/api/dispute",
+     "agents_used": ["dispute"]},
+    {"method": "GET", "path": "/api/trace/{booking_id}",
+     "agents_used": []},
+    {"method": "GET", "path": "/api/providers",
+     "agents_used": []},
+    {"method": "GET", "path": "/api/health",
+     "agents_used": []}
+  ]
+}

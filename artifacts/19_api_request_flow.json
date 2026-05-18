@@ -1,0 +1,22 @@
+{
+  "task_name": "api_request_flow",
+  "timestamp": "2026-05-17T11:44:02Z",
+  "workplan": "Document the correct two-step booking flow",
+  "decisions_made": [
+    "Step 1: POST /api/request runs 4 agents and returns options",
+    "Step 2: POST /api/book confirms and creates booking",
+    "User must explicitly confirm before booking is created",
+    "This prevents accidental bookings and unnecessary Firestore writes"
+  ],
+  "tools_called": [
+    "pipeline.py",
+    "main.py"
+  ],
+  "files_created": [],
+  "errors_encountered": [
+    "Original pipeline ran all 7 agents automatically",
+    "This caused bookings to be created without user confirmation",
+    "Caused unnecessary Firestore writes on every test"
+  ],
+  "outcome": "Two step flow implemented. /api/request for discovery, /api/book for confirmation."
+}

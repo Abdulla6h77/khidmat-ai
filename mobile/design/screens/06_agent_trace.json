@@ -1,0 +1,153 @@
+{
+  "screen_name": "AgentTraceScreen",
+  "screen_index": 6,
+  "stitch_screen_id": "0705f6771cf04a3cbe8c0f4562dd830a",
+  "layout": {
+    "viewport": "375x812 (Mobile)",
+    "background": "#F5F5F5",
+    "structure": [
+      "TopAppBar (Title, Export icon)",
+      "SummaryBanner (Total duration badge)",
+      "AgentTimelineCards (Color-coded borders)",
+      "StickyExportButton (Footer Action)",
+      "BottomNavBar (Sticky Navigation)"
+    ]
+  },
+  "components": {
+    "top_app_bar": {
+      "type": "Container",
+      "background": "#FFFFFF",
+      "border_bottom": "1px solid #E0E0E0",
+      "padding": "16px 20px",
+      "children": {
+        "title_en": {
+          "type": "Text",
+          "value": "AI Decision Log",
+          "color": "#1B5E20",
+          "font_size": "18sp",
+          "weight": "Bold"
+        },
+        "title_ur": {
+          "type": "Text",
+          "value": "اے آئی فیصلے",
+          "color": "#757575",
+          "font_size": "15sp",
+          "weight": "Medium"
+        },
+        "share_button": {
+          "type": "IconButton",
+          "icon": "share",
+          "color": "#1B5E20"
+        }
+      }
+    },
+    "summary_banner": {
+      "type": "Container",
+      "background": "#FFF9C4",
+      "padding": "12px 16px",
+      "margin": "16px 16px 8px 16px",
+      "border_radius": "8px",
+      "border": "1px solid #FFF59D",
+      "text_en": "Total Processing Duration: 1.8 seconds",
+      "text_ur": "کل پروسیسنگ وقت: ١.٨ سیکنڈ",
+      "color": "#F57F17",
+      "weight": "Bold"
+    },
+    "timeline": {
+      "type": "ListView",
+      "padding": "8px 16px",
+      "cards": [
+        {
+          "agent_name_en": "Intent Agent",
+          "agent_name_ur": "نیت کا ایجنٹ",
+          "border_color": "#2196F3",
+          "summary_en": "Identified 'Plumbing request in F-8' with 98% confidence.",
+          "summary_ur": "٩٨٪ فیصد یقین کے ساتھ ایف-٨ میں پلمبنگ سروس کی شناخت کی گئی۔",
+          "raw_json": "{\"intent\": \"plumbing\", \"area\": \"F-8\", \"confidence\": 0.98}"
+        },
+        {
+          "agent_name_en": "Discovery Agent",
+          "agent_name_ur": "تلاش کا ایجنٹ",
+          "border_color": "#9C27B0",
+          "summary_en": "Discovered 4 available plumbers in F-8 matching search.",
+          "summary_ur": "ایف-٨ میں تلاش سے مطابقت رکھنے والے ٤ دستیاب پلمبر ملے۔",
+          "raw_json": "{\"found_providers\": [\"P001\", \"P003\", \"P005\", \"P006\"]}"
+        },
+        {
+          "agent_name_en": "Ranking Agent",
+          "agent_name_ur": "درجہ بندی کا ایجنٹ",
+          "border_color": "#FF9800",
+          "summary_en": "Ranked Tariq Mahmood #1 based on 1.2km distance, 4.8 rating, and 98% on-time rate.",
+          "summary_ur": "طارق محمود کو ١.٢ کلومیٹر فاصلے اور ٤.٨ ریٹنگ کی بنیاد پر پہلے نمبر پر رکھا۔",
+          "raw_json": "{\"ranked_providers\": [{\"id\": \"P005\", \"score\": 0.94}]}"
+        },
+        {
+          "agent_name_en": "Pricing Agent",
+          "agent_name_ur": "قیمت کا ایجنٹ",
+          "border_color": "#FFC107",
+          "summary_en": "Calculated price PKR 1,360 based on Base 1300 + Distance 60.",
+          "summary_ur": "بنیادی قیمت ١٣٠٠ + فاصلہ ٦٠ کی بنیاد پر کل قیمت ١٣٦٠ روپے شمار کی۔",
+          "raw_json": "{\"calculated_price\": 1360, \"breakdown\": {\"base\": 1300, \"distance\": 60}}"
+        },
+        {
+          "agent_name_en": "Booking Agent",
+          "agent_name_ur": "بکنگ کا ایجنٹ",
+          "border_color": "#4CAF50",
+          "summary_en": "Locked slot at 3:00 PM and reserved Tariq Mahmood.",
+          "summary_ur": "دوپہر ٣:٠٠ بجے کا سلاٹ لاک کر کے طارق محمود کو بک کر لیا۔",
+          "raw_json": "{\"booking_status\": \"locked\", \"slot\": \"15:00\"}"
+        },
+        {
+          "agent_name_en": "Notification Agent",
+          "agent_name_ur": "نوٹیفکیشن کا ایجنٹ",
+          "border_color": "#009688",
+          "summary_en": "Sent WhatsApp notification bubble with code 526377.",
+          "summary_ur": "کوڈ 526377 کے ساتھ واٹس ایپ نوٹیفکیشن کامیابی سے بھیج دیا گیا۔",
+          "raw_json": "{\"channels\": [\"whatsapp\", \"sms\"], \"message_delivered\": true}"
+        }
+      ]
+    },
+    "export_button": {
+      "type": "Button",
+      "background": "transparent",
+      "border": "1.5px solid #1B5E20",
+      "border_radius": "12px",
+      "height": "48px",
+      "margin": "16px",
+      "text_en": "Export Logs",
+      "text_ur": "لاگز ایکسپورٹ کریں",
+      "text_color": "#1B5E20",
+      "weight": "Bold"
+    },
+    "bottom_nav_bar": {
+      "type": "BottomNavigationBar",
+      "background": "#FFFFFF",
+      "border_top": "1px solid #E0E0E0",
+      "active_color": "#1B5E20",
+      "inactive_color": "#757575",
+      "items": [
+        {"icon": "home", "label_en": "Home", "label_ur": "ہوم"},
+        {"icon": "people", "label_en": "Providers", "label_ur": "فراہم کنندہ"},
+        {"icon": "analytics", "label_en": "AI Trace", "label_ur": "ٹریس", "selected": true},
+        {"icon": "compare_arrows", "label_en": "Compare", "label_ur": "موازنہ"}
+      ]
+    }
+  },
+  "styling": {
+    "colors": {
+      "background": "#F5F5F5",
+      "card": "#FFFFFF",
+      "duration_banner": "#FFF9C4",
+      "duration_text": "#F5F717",
+      "intent": "#2196F3",
+      "discovery": "#9C27B0",
+      "ranking": "#FF9800",
+      "pricing": "#FFC107",
+      "booking": "#4CAF50",
+      "notification": "#009688"
+    },
+    "shapes": {
+      "border_radius": "12px"
+    }
+  }
+}

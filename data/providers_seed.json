@@ -1,0 +1,62 @@
+[
+  {
+    "id": "P001", "name": "Ali Khan", "service_types": ["AC technician"], "areas": ["F-7", "F-8"], "rating": 4.8, "review_count": 120, "last_review_date": "2026-05-15", "on_time_score": 0.95, "cancellation_rate": 0.02, "base_rate_per_hour": 1500, "availability_slots": ["9AM", "11AM", "2PM", "4PM"], "specialization_level": "expert", "distance_km": 1.5, "active": true
+  },
+  {
+    "id": "P002", "name": "Usman Tariq", "service_types": ["AC technician"], "areas": ["G-10", "G-13"], "rating": 4.5, "review_count": 85, "last_review_date": "2026-05-10", "on_time_score": 0.90, "cancellation_rate": 0.05, "base_rate_per_hour": 1400, "availability_slots": ["10AM", "1PM", "3PM"], "specialization_level": "intermediate", "distance_km": 3.2, "active": true
+  },
+  {
+    "id": "P003", "name": "Bilal Ahmad", "service_types": ["AC technician"], "areas": ["DHA", "Gulberg"], "rating": 4.9, "review_count": 210, "last_review_date": "2026-05-14", "on_time_score": 0.98, "cancellation_rate": 0.01, "base_rate_per_hour": 2000, "availability_slots": ["9AM", "11AM", "5PM"], "specialization_level": "expert", "distance_km": 5.0, "active": true
+  },
+  {
+    "id": "P004", "name": "Hamza Ali", "service_types": ["AC technician"], "areas": ["F-7", "G-10"], "rating": 4.2, "review_count": 45, "last_review_date": "2026-05-01", "on_time_score": 0.85, "cancellation_rate": 0.08, "base_rate_per_hour": 1200, "availability_slots": ["2PM", "4PM", "6PM"], "specialization_level": "beginner", "distance_km": 2.8, "active": true
+  },
+  {
+    "id": "P005", "name": "Tariq Mahmood", "service_types": ["plumber"], "areas": ["F-8", "G-13"], "rating": 4.7, "review_count": 150, "last_review_date": "2026-05-12", "on_time_score": 0.92, "cancellation_rate": 0.03, "base_rate_per_hour": 1300, "availability_slots": ["9AM", "12PM", "3PM"], "specialization_level": "expert", "distance_km": 1.2, "active": true
+  },
+  {
+    "id": "P006", "name": "Imran Shah", "service_types": ["plumber"], "areas": ["DHA", "F-7"], "rating": 4.6, "review_count": 95, "last_review_date": "2026-05-09", "on_time_score": 0.88, "cancellation_rate": 0.04, "base_rate_per_hour": 1500, "availability_slots": ["10AM", "2PM", "5PM"], "specialization_level": "intermediate", "distance_km": 4.1, "active": true
+  },
+  {
+    "id": "P007", "name": "Faisal Qureshi", "service_types": ["plumber"], "areas": ["Gulberg", "G-10"], "rating": 4.4, "review_count": 60, "last_review_date": "2026-05-05", "on_time_score": 0.85, "cancellation_rate": 0.06, "base_rate_per_hour": 1200, "availability_slots": ["11AM", "1PM", "4PM"], "specialization_level": "intermediate", "distance_km": 6.5, "active": true
+  },
+  {
+    "id": "P008", "name": "Noman Raza", "service_types": ["plumber"], "areas": ["F-8", "DHA"], "rating": 4.8, "review_count": 180, "last_review_date": "2026-05-16", "on_time_score": 0.96, "cancellation_rate": 0.01, "base_rate_per_hour": 1600, "availability_slots": ["9AM", "11AM", "3PM"], "specialization_level": "expert", "distance_km": 2.5, "active": true
+  },
+  {
+    "id": "P009", "name": "Zeeshan Malik", "service_types": ["electrician"], "areas": ["G-13", "Gulberg"], "rating": 4.9, "review_count": 250, "last_review_date": "2026-05-15", "on_time_score": 0.99, "cancellation_rate": 0.00, "base_rate_per_hour": 1800, "availability_slots": ["8AM", "10AM", "1PM"], "specialization_level": "expert", "distance_km": 3.0, "active": true
+  },
+  {
+    "id": "P010", "name": "Hassan Javed", "service_types": ["electrician"], "areas": ["F-7", "F-8"], "rating": 4.3, "review_count": 75, "last_review_date": "2026-05-02", "on_time_score": 0.82, "cancellation_rate": 0.07, "base_rate_per_hour": 1000, "availability_slots": ["12PM", "2PM", "4PM", "6PM"], "specialization_level": "beginner", "distance_km": 1.8, "active": true
+  },
+  {
+    "id": "P011", "name": "Kamran Akmal", "service_types": ["electrician"], "areas": ["DHA", "G-10"], "rating": 4.7, "review_count": 110, "last_review_date": "2026-05-11", "on_time_score": 0.91, "cancellation_rate": 0.03, "base_rate_per_hour": 1500, "availability_slots": ["9AM", "3PM", "5PM"], "specialization_level": "intermediate", "distance_km": 4.5, "active": true
+  },
+  {
+    "id": "P012", "name": "Salman Butt", "service_types": ["electrician"], "areas": ["Gulberg", "F-8"], "rating": 4.5, "review_count": 90, "last_review_date": "2026-05-08", "on_time_score": 0.89, "cancellation_rate": 0.05, "base_rate_per_hour": 1400, "availability_slots": ["10AM", "11AM", "2PM", "4PM"], "specialization_level": "intermediate", "distance_km": 5.2, "active": true
+  },
+  {
+    "id": "P013", "name": "Junaid Khan", "service_types": ["home cleaner"], "areas": ["F-7", "DHA"], "rating": 4.8, "review_count": 300, "last_review_date": "2026-05-16", "on_time_score": 0.97, "cancellation_rate": 0.01, "base_rate_per_hour": 800, "availability_slots": ["9AM", "11AM", "1PM", "3PM", "5PM"], "specialization_level": "expert", "distance_km": 2.0, "active": true
+  },
+  {
+    "id": "P014", "name": "Rizwan Ahmed", "service_types": ["home cleaner"], "areas": ["G-10", "G-13"], "rating": 4.4, "review_count": 120, "last_review_date": "2026-05-07", "on_time_score": 0.86, "cancellation_rate": 0.04, "base_rate_per_hour": 700, "availability_slots": ["10AM", "12PM", "4PM"], "specialization_level": "intermediate", "distance_km": 3.8, "active": true
+  },
+  {
+    "id": "P015", "name": "Waqas Younis", "service_types": ["home cleaner"], "areas": ["Gulberg", "F-8"], "rating": 4.6, "review_count": 160, "last_review_date": "2026-05-14", "on_time_score": 0.93, "cancellation_rate": 0.02, "base_rate_per_hour": 750, "availability_slots": ["8AM", "10AM", "2PM", "4PM"], "specialization_level": "expert", "distance_km": 6.1, "active": true
+  },
+  {
+    "id": "P016", "name": "Yasir Hameed", "service_types": ["home cleaner"], "areas": ["DHA", "G-13"], "rating": 4.1, "review_count": 50, "last_review_date": "2026-04-28", "on_time_score": 0.80, "cancellation_rate": 0.10, "base_rate_per_hour": 600, "availability_slots": ["11AM", "1PM", "3PM", "5PM"], "specialization_level": "beginner", "distance_km": 4.9, "active": true
+  },
+  {
+    "id": "P017", "name": "Farhan Saeed", "service_types": ["carpenter"], "areas": ["F-7", "G-10"], "rating": 4.7, "review_count": 140, "last_review_date": "2026-05-12", "on_time_score": 0.94, "cancellation_rate": 0.03, "base_rate_per_hour": 1500, "availability_slots": ["9AM", "1PM", "4PM"], "specialization_level": "expert", "distance_km": 2.2, "active": true
+  },
+  {
+    "id": "P018", "name": "Shahzad Roy", "service_types": ["carpenter"], "areas": ["F-8", "Gulberg"], "rating": 4.5, "review_count": 105, "last_review_date": "2026-05-10", "on_time_score": 0.88, "cancellation_rate": 0.05, "base_rate_per_hour": 1400, "availability_slots": ["10AM", "12PM", "3PM", "5PM"], "specialization_level": "intermediate", "distance_km": 3.5, "active": true
+  },
+  {
+    "id": "P019", "name": "Arslan Ali", "service_types": ["carpenter"], "areas": ["DHA", "G-13"], "rating": 4.9, "review_count": 220, "last_review_date": "2026-05-15", "on_time_score": 0.98, "cancellation_rate": 0.01, "base_rate_per_hour": 1800, "availability_slots": ["8AM", "11AM", "2PM", "5PM"], "specialization_level": "expert", "distance_km": 5.5, "active": true
+  },
+  {
+    "id": "P020", "name": "Shoaib Akhtar", "service_types": ["carpenter"], "areas": ["F-7", "DHA"], "rating": 4.2, "review_count": 65, "last_review_date": "2026-05-01", "on_time_score": 0.81, "cancellation_rate": 0.08, "base_rate_per_hour": 1200, "availability_slots": ["9AM", "2PM", "4PM"], "specialization_level": "beginner", "distance_km": 2.9, "active": true
+  }
+]

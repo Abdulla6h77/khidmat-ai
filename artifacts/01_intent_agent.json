@@ -1,0 +1,26 @@
+{
+  "task_name": "01_intent_agent",
+  "timestamp": "2026-05-17T10:11:00Z",
+  "workplan": "Build Agent 1: Intent Extraction. Parse raw user natural language (English/Urdu) into structured JSON with service_type, location, urgency, budget_range, description.",
+  "tasks_completed": [
+    "Defined INTENT_INSTRUCTION prompt with strict JSON output schema",
+    "Created intent_agent using ADK Agent(model='openai/gpt-4o-mini')",
+    "Implemented extract_intent() with JSON parse + fallback error handling",
+    "Added markdown code-block stripping for LLM output cleanup"
+  ],
+  "decisions_made": [
+    "Use enum constraint for service_type: AC_REPAIR, PLUMBING, ELECTRICAL, CLEANING, CARPENTRY, OTHER",
+    "Use enum for urgency: URGENT, NORMAL, FLEXIBLE",
+    "Return raw_input echo in output for traceability",
+    "Graceful fallback: return partial result with parse_error key if JSON fails"
+  ],
+  "tools_called": [
+    "google.adk.Agent",
+    "agents/runner_utils.py run_agent_sync()"
+  ],
+  "files_created": [
+    "backend/agents/intent_agent.py"
+  ],
+  "errors_encountered": [],
+  "outcome": "Intent agent successfully extracts structured booking intents from English and Urdu/Roman Urdu messages. Service: AC_REPAIR | Location: DHA Lahore | Urgency: URGENT confirmed in pipeline test."
+}
